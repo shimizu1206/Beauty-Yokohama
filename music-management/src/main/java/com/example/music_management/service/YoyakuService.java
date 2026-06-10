@@ -3,7 +3,6 @@ package com.example.music_management.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
 import com.example.music_management.entity.Yoyaku;
 import com.example.music_management.repository.YoyakuRepository;
 
@@ -16,5 +15,8 @@ public class YoyakuService {
     }
         public List<Yoyaku> getAllYoyakus(){
         return yoyakuRepository.getAllYoyakus();
+    }
+    public Yoyaku getAlbumById(long albumId) {
+        return yoyakuRepository.getYoyakuById(albumId);
     }
 }

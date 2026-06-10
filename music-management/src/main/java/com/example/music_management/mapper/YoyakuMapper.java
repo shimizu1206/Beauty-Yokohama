@@ -10,5 +10,8 @@ import com.example.music_management.entity.Yoyaku;
 public interface YoyakuMapper {
    @Select("SELECT * FROM yoyakus")
     List<Yoyaku> selectAllYoyakus();
+
+    @Select("SELECT * FROM yoyakus WHERE yoyaku_id = #{yoyakuId}")
+    Yoyaku selectYoyakuById(long yoyakuId);
 }
 

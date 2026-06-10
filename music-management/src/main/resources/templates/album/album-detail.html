@@ -9,39 +9,19 @@
     <table>
         <tr>
             <th>アルバム ID</th>
-            <td th:text="${album.albumId}"></td>
+            <td th:text="${yoyaku.yoyakuId}"></td>
         </tr>
         <tr>
             <th>タイトル </th>
-            <td th:text="${album.title}"></td>
+            <td th:text="${yoyaku.name1}"></td>
         </tr>
         <tr>
             <th>アーティスト </th>
-            <td th:text="${album.artist}"></td>
+            <td th:text="${yoyaku.zyusyo}"></td>
         </tr>
         <tr>
             <th>リリース日 </th>
-            <td th:text="${album.releaseDate}"></td>
-        </tr>
-        <tr>
-            <th>作成日時 </th>
-            <td th:text="${#temporals.format(album.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
-        </tr>
-        <tr>
-             <form th:action="@{/albums/re}" th:object="${formList}" method="post">
-        <div>
-            <label for="name">店舗名： </label>
-            <input type="text" id="name" name="name" th:field="*{name}">
-        </div>
-        <div>
-            <label for="zyusyo">住所： </label>
-            <input type="text" id="zyusyo" name="zyusyo" th:field="*{zyusyo}">
-        </div>
-        <div>
-            <label for="kakau">価格帯: </label>
-            <input type="text" id="kakaku" name="kakau" th:field="*{kakaku}">
-        </div>
-        <button type="submit">追加</button>
+            <td th:text="${yoyaku.kakaku}"></td>
         </tr>
     </table>
     <a href="/albums">周辺店舗一覧に戻る </a>
