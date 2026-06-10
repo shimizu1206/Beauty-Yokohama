@@ -1,10 +1,14 @@
+--ここで、具体的な要素を入れていく
 INSERT INTO albums (title, artist, release_date) VALUES
-  ('Cut淳', '横浜西口', '10000円~'),
-  ('散髪屋', '鶴屋町', '4000円~'),
-  ('千円カット', '横浜台町', '1000円');
+    ('Hello World', 'Aurora Beats', '2021-08-20'),
+    ('Strings of Serenity', 'Harmony Collective', '2020-11-10'),
+    ('Cosmic Vibes', 'Galaxy Harmonics', '2024-01-18');
+INSERT INTO musics (title, duration, album_id) VALUES
+    ('Sunset', '00:03:45', 1),
+    ('Moonlight', '00:04:12', 1),
+    ('Eternal Memories', '00:05:45', 2);
+
 INSERT INTO yoyakus (name1, zyusyo, kakaku) VALUES
   ('Sunset', 'ここ', '1000'),
   ('Moonlight', 'どこ', '2000'),
   ('Eternal Memories', 'これ', '2000');
-
-  -- PW は「track」
