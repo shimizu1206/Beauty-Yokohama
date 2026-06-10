@@ -1,9 +1,7 @@
 package com.example.music_management.repository;
 
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
-
 import com.example.music_management.entity.Yoyaku;
 import com.example.music_management.mapper.YoyakuMapper;
 
@@ -14,6 +12,9 @@ public class YoyakuRepository {
         this.yoyakuMapper = yoyakuMapper;
     }
 
+      public Yoyaku getYoyakuById(long albumId) {
+        return yoyakuMapper.selectYoyakuById(albumId);
+    }
         public List<Yoyaku> getAllYoyakus(){
         return yoyakuMapper.selectAllYoyakus();
     }

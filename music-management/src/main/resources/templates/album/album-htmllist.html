@@ -18,7 +18,7 @@
         <tbody>
             <tr th:each="yoyaku : ${yoyakus}">
                 <td><span th:text="${yoyaku.yoyakuId}">yoyaku id</span></td>
-                <td><span th:text="${yoyaku.name1}">yoyaku name1</span></a></td>
+                <td><a th:href="@{/yoyakus/{yoyakuId}(yoyakuId=${yoyaku.yoyakuId})}"><span th:text="${yoyaku.name1}">yoyaku name1</span></a></td>
                 <td><span th:text="${yoyaku.zyusyo}">yoyaku zyusyo</span></td>
                 <td><span th:text="${yoyaku.kakaku}">yoyaku kakaku</span></td>
             </tr>
