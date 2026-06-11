@@ -64,6 +64,12 @@ CREATE TABLE items (--商品情報
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
 
+CREATE TABLE users (--ユーザー情報
+    user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(255) NOT NULL,
+    user_password VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE yoyakus (
    yoyaku_id INTEGER AUTO_INCREMENT PRIMARY KEY,
    name1 VARCHAR(255) NOT NULL,
