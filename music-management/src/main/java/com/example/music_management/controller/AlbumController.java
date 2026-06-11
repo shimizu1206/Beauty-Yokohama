@@ -1,9 +1,9 @@
 package com.example.music_management.controller;
 
 import com.example.music_management.entity.Album;
-import com.example.music_management.entity.Yoyaku;
+import com.example.music_management.entity.Shop;
 import com.example.music_management.service.AlbumService;
-import com.example.music_management.service.YoyakuService;
+import com.example.music_management.service.ShopService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,17 +20,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/yoyakus")
 public class AlbumController {
     private final AlbumService albumService;//フィールド
-    private final YoyakuService yoyakuService;
+    private final ShopService shopService;
 
-    public AlbumController(AlbumService albumService,YoyakuService yoyakuService) {
+    public AlbumController(AlbumService albumService,ShopService shopService) {
         this.albumService = albumService;
-        this.yoyakuService = yoyakuService;
+        this.shopService = shopService;
     }
 
     @GetMapping 
      public String yoyakus(Model model){
-        List<Yoyaku> yoyakus = yoyakuService.getAllYoyakus();
-        model.addAttribute("yoyakus", yoyakus);
+        List<Shop> yoyakus = shopService.getAllShops();
+        model.addAttribute("shops", yoyakus);
         return "album/album-htmllist";
     }
     @GetMapping("/re")
@@ -60,16 +60,10 @@ public class AlbumController {
     }
 
     @GetMapping("/{yoyakuId}")
-    public String yoyaku(@PathVariable long yoyakuId, Model model) {
-        Yoyaku yoyaku = yoyakuService.getAlbumById(yoyakuId);
-        model.addAttribute("yoyaku", yoyaku);
+    public String yoyaku(@PathVariable long shopId, Model model) {
+        Shop shop = shopService.getShopById(shopId);
+        model.addAttribute("shops", shop);
         return "album/album-detail";
-    }
-    @PostMapping("/{yoyakuId}/{humanId}")
-    public String human(@PathVariable long yoyakuId, Model model) {
-        Yoyaku yoyaku = yoyakuService.getAlbumById(yoyakuId);
-        model.addAttribute("yoyaku", yoyaku);
-        return "album/album-human";
     }
 
     @PostMapping("/{albumId}/delete")

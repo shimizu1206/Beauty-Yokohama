@@ -21,7 +21,7 @@ CREATE TABLE shops (--店舗情報
     shop_name VARCHAR(255) NOT NULL,--店舗名
     opening_hours TIME,--営業時間
     shop_address VARCHAR(255),--住所
-    price_range VARCHAR(255) DEFAULT '--～--'--価格帯
+    price_range VARCHAR(255) DEFAULT '--~--'--価格帯
 );
 CREATE TABLE staff (--美容師情報
     staff_id INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -64,8 +64,8 @@ CREATE TABLE items (--商品情報
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
 
-CREATE TABLE yoyakus (
-   yoyaku_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE  (
+   shop_id INTEGER AUTO_INCREMENT PRIMARY KEY,
    name1 VARCHAR(255) NOT NULL,
    zyusyo VARCHAR(255) ,
    kakaku VARCHAR(255) ,

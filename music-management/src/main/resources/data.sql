@@ -8,7 +8,5 @@ INSERT INTO musics (title, duration, album_id) VALUES
     ('Moonlight', '00:04:12', 1),
     ('Eternal Memories', '00:05:45', 2);
 
-INSERT INTO yoyakus (name1, zyusyo, kakaku) VALUES
-  ('Sunset', 'ここ', '1000'),
-  ('Moonlight', 'どこ', '2000'),
-  ('Eternal Memories', 'これ', '2000');
+INSERT INTO shops (shop_name,opening_hours,shop_address,price_range) VALUES
+  ('Sunset', '00:03:45','西口','1400~10000');
