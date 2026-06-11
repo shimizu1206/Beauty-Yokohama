@@ -42,7 +42,6 @@ CREATE TABLE menus (--メニュー情報
     shop_id INTEGER NOT NULL,
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
-
 CREATE TABLE reserve (--予約情報
     reserveshop_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     shop_name VARCHAR(255) NOT NULL,--店舗名
@@ -51,8 +50,7 @@ CREATE TABLE reserve (--予約情報
     manu VARCHAR(255),--メニュー
     price INTEGER,--値段
     Date_and_Time TIMESTAMP,--予約日時
-    item VARCHAR(255)--購入品
-        
+    item VARCHAR(255)--購入品  
 );
 CREATE TABLE items (--商品情報
     item_id INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -63,23 +61,9 @@ CREATE TABLE items (--商品情報
     shop_id INTEGER NOT NULL,
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
-
-<<<<<<< HEAD
-CREATE TABLE  (
-   shop_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-=======
 CREATE TABLE users (--ユーザー情報
     user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(255) NOT NULL,
     user_password VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE yoyakus (
-   yoyaku_id INTEGER AUTO_INCREMENT PRIMARY KEY,
->>>>>>> 642edfa88db6b84818e35a978d0e66b8d74bb7c3
-   name1 VARCHAR(255) NOT NULL,
-   zyusyo VARCHAR(255) ,
-   kakaku VARCHAR(255) ,
-   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

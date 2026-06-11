@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller
-@RequestMapping("/yoyakus")
+@RequestMapping("/shops")
 public class AlbumController {
     private final AlbumService albumService;//フィールド
     private final ShopService shopService;
@@ -28,9 +28,9 @@ public class AlbumController {
     }
 
     @GetMapping 
-     public String yoyakus(Model model){
-        List<Shop> yoyakus = shopService.getAllShops();
-        model.addAttribute("shops", yoyakus);
+     public String shops(Model model){
+        List<Shop> shops = shopService.getAllShops();
+        model.addAttribute("shops", shops);
         return "album/album-htmllist";
     }
     @GetMapping("/re")
@@ -59,8 +59,8 @@ public class AlbumController {
         return "redirect:/albums";
     }
 
-    @GetMapping("/{yoyakuId}")
-    public String yoyaku(@PathVariable long shopId, Model model) {
+    @GetMapping("/{shopId}")
+    public String shops(@PathVariable long shopId, Model model) {
         Shop shop = shopService.getShopById(shopId);
         model.addAttribute("shops", shop);
         return "album/album-detail";
