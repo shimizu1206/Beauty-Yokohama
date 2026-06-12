@@ -15,7 +15,7 @@ INSERT INTO shops (shop_name, opening_hours, shop_address,price_range) VALUES
   ('Haircut横浜', '10:00~22:30', '〇県〇市〇町','3000~15000'),
   ('横浜style', '8:00~21:30', '〇県〇市〇町','3000~10000');
 
-INSERT INTO staff (staff_name, gender, age,specialty,Career,hobby,shop_id) VALUES
+INSERT INTO staff (staff_name, gender, age,specialty,career,hobby,shop_id) VALUES
   ('takeru', '男性', 30,'パーマ',5,'キャンプ',1),
   ('rei', '女性', 23,'パーマ',3,'ギター',1),
   ('masato', '男性', 28,'パーマ',8,'音楽',2),
