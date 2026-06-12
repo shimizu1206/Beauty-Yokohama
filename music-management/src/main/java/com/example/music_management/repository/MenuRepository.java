@@ -2,6 +2,7 @@ package com.example.music_management.repository;
 
 import java.util.List;
 import org.springframework.stereotype.Repository;
+
 import com.example.music_management.entity.Menu;
 import com.example.music_management.mapper.MenuMapper;
 
@@ -19,5 +20,9 @@ public class MenuRepository {
 
     public List<Menu> getAllMenus() {
         return menuMapper.selectAllMenus();
+    }
+
+    public List<Menu> getMenusByshopId(long shopId){
+        return menuMapper.selectMenusByshopId(shopId);
     }
 }

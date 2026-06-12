@@ -3,11 +3,14 @@ package com.example.music_management.controller;
 import com.example.music_management.entity.Album;
 import com.example.music_management.entity.Item;
 import com.example.music_management.entity.Menu;
+import com.example.music_management.entity.Reserve;
 import com.example.music_management.entity.Shop;
 import com.example.music_management.service.AlbumService;
 import com.example.music_management.service.ItemService;
 import com.example.music_management.service.MenuService;
 import com.example.music_management.service.ShopService;
+import com.example.music_management.service.ReserveService;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import com.example.music_management.form.AlbumForm;
+import com.example.music_management.form.ReserveForm;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -27,12 +32,15 @@ public class AlbumController {
     private final ShopService shopService;
     private final ItemService itemService;
     private final MenuService menuService;
+    private final ReserveService reserveService;
 
-    public AlbumController(AlbumService albumService,ShopService shopService,ItemService itemService,MenuService menuService) {
+
+    public AlbumController(AlbumService albumService,ShopService shopService,ItemService itemService,MenuService menuService,ReserveService reserveService) {
         this.albumService = albumService;
         this.shopService = shopService;
         this.itemService = itemService;
-        this.menuService = menuService; 
+        this.menuService = menuService;
+        this.reserveService = reserveService;
     }
 
     @GetMapping 
@@ -93,13 +101,7 @@ public class AlbumController {
         return "redirect:/albums";
     }
 
-    @GetMapping("/items")
-    public String items(Model model) {
-        List<Item> items = itemService.getAllItems();
-        model.addAttribute("items", items);
-        return "album/item-list";
-    }
-
+//========================================================================================
     @GetMapping("/items/{shopId}")
     public String item(@PathVariable long shopId, Model model) {
         List<Item> item = itemService.getItemsByshopId(shopId);
@@ -107,18 +109,18 @@ public class AlbumController {
         return "album/item-list";
     }
 
-    @GetMapping("/menus")
-    public String menus(Model model) {
-        List<Menu> menus = menuService.getAllMenus();
-        model.addAttribute("menus", menus);
+
+    @GetMapping("/menus/{shopId}")
+    public String menu(@PathVariable long shopId, Model model) {
+        List<Menu> menu = menuService.getMenusByshopId(shopId);
+        model.addAttribute("menus", menu);
         return "album/menu-list";
     }
 
-    @GetMapping("/menus/{menuId}")
-    public String menu(@PathVariable long menuId, Model model) {
-        Menu menu = menuService.getMenuById(menuId);
-        model.addAttribute("menu", menu);
-        return "album/menu-list";
+    @PostMapping("/new")
+    public String createReserve(ReserveForm reserveForm) {
+        reserveService.createReserve(reserveForm);
+        return "redirect:/albums";
     }
 
 }

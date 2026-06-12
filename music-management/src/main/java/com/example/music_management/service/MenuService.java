@@ -3,6 +3,7 @@ package com.example.music_management.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
 import com.example.music_management.entity.Menu;
 import com.example.music_management.repository.MenuRepository;
 
@@ -18,5 +19,9 @@ public class MenuService {
     }
     public Menu getMenuById(long albumId) {//htmlに届ける
         return menuRepository.getMenuById(albumId);
+    }
+
+      public List<Menu> getMenusByshopId(long shopId){
+        return menuRepository.getMenusByshopId(shopId);
     }
 }
