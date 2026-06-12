@@ -9,6 +9,9 @@ import com.example.music_management.entity.Staff;
 import com.example.music_management.service.AlbumService;
 import com.example.music_management.service.ItemService;
 import com.example.music_management.service.MenuService;
+import com.example.music_management.service.ReserveService;
+import com.example.music_management.service.ReserveService;
+import com.example.music_management.service.ReserveService;
 import com.example.music_management.service.ShopService;
 import com.example.music_management.service.StaffService;
 
@@ -33,13 +36,16 @@ public class AlbumController {
     private final ItemService itemService;
     private final MenuService menuService;
     private final StaffService staffService;
+    private final ReserveService reserveService;
 
-    public AlbumController(AlbumService albumService,ShopService shopService,ItemService itemService,MenuService menuService,StaffService staffService) {
+
+    public AlbumController(AlbumService albumService,ShopService shopService,ItemService itemService,MenuService menuService,StaffService staffService,ReserveService reserveService) {
         this.albumService = albumService;
         this.shopService = shopService;
         this.itemService = itemService;
         this.menuService = menuService; 
         this.staffService = staffService;
+        this.reserveService = reserveService;
     }
 
     @GetMapping 
@@ -120,6 +126,13 @@ public class AlbumController {
         List<Menu> menu = menuService.getMenusByshopId(shopId);
         model.addAttribute("menus", menu);
         return "album/menu-list";
+    }
+
+    @GetMapping("/new") // 画面から入力のところ
+    public String reserveForm(Model model) {// getの時はhtmlに渡すからmodelを使う？
+        ReserveForm reserveForm = new ReserveForm(); // albumform型のalbumformを作成
+        model.addAttribute("reserveForm", reserveForm);// modelにalbumformという名前でalbumformを入れる
+        return "album/album-form";// ここのhtmlに返す
     }
 
     @PostMapping("/new")
