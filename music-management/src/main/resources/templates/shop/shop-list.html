@@ -2,29 +2,24 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{layout :: head(アルバム一覧 )}"></head>
-
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <body>
     <div th:replace="~{layout :: header}"></div>
     <h3>横浜周辺店舗一覧 </h3>
     <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>周辺店舗 </th>
-                <th>営業時間 </th>
-                <th>住所 </th>
-                <th>価格帯 </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="shop : ${shops}">
-                <td><span th:text="${shop.shopId}">shopid</span></td>
-                <td><a th:href="@{/shops/{shopId}(shopId=${shop.shopId})}"><span th:text="${shop.shopName}">shopname</span></a></td>
-                <td><span th:text="${shop.openingHours}">shopopeningHours</span></td>
-                <td><span th:text="${shop.shopAddress}">shopAddress</span></td>
-                <td><span th:text="${shop.priceRange}">shopkakaku</span>円</td>
-            </tr>
-        </tbody>
+        <div class="row g-4">
+        <div class="col-md-6 col-xl-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body" p th:each="shop : ${shops}">
+              <p class="card-text text-secondary" th:text="${shop.shopId}">駅から近い大型店舗です。</p>
+              <p class="card-text text-secondary" th:text="${shop.shopName}">駅から近い大型店舗です。</p>
+              <p class="card-text text-secondary" th:text="${shop.openingHours}">駅から近い大型店舗です。</p>
+              <p class="card-text text-secondary" th:text="${shop.shopAddress}">駅から近い大型店舗です。</p>
+              <p class="card-text text-secondary" th:text="${shop.priceRange}">駅から近い大型店舗です。</p>
+              <a th:href="@{/shops/{shopId}(shopId=${shop.shopId})}" class="btn btn-outline-primary w-100">詳細</a>
+            </div>
+          </div>
+        </div>
     </table>
     <div th:replace="~{layout :: footer}"></div>
 </body>
