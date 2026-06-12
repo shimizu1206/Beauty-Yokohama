@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head(アルバム一覧 )}"></head>
+
+<body>
+    <div th:replace="~{layout :: header}"></div>
+    <h3>メニュー一覧 </h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID </th>
+                <th>名前 </th>
+                <th>値段 </th>
+                <th>説明 </th>
+                <th>在庫 </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${items}">
+                <td><span th:text="${item.itemId}">item id</span></td>
+                <td><span th:text="${item.itemName}">item name</span></td>
+                <td><span th:text="${item.price}">item price</span>円</td>
+                <td><span th:text="${item.features}">item features</span></td>
+                <td><span th:text="${item.stock}">item stock</span></td>
+                <td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div th:replace="~{layout :: footer}"></div>
+</body>
+
+</html>
