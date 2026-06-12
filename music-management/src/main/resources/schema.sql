@@ -19,7 +19,7 @@ CREATE TABLE musics (
 CREATE TABLE shops (--店舗情報
     shop_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     shop_name VARCHAR(255) NOT NULL,--店舗名
-    opening_hours TIME,--営業時間
+    opening_hours VARCHAR(255),--営業時間
     shop_address VARCHAR(255),--住所
     price_range VARCHAR(255) DEFAULT '--~--'--価格帯
 );
@@ -28,7 +28,7 @@ CREATE TABLE staff (--美容師情報
     staff_name VARCHAR(255) NOT NULL,--美容師名
     gender VARCHAR(255),--性別
     age INTEGER,--年齢
-    specialty VARCHAR(255) NOT NULL,--得意なスタイル
+    specialty VARCHAR(255),--得意なスタイル
     Career INTEGER,--経歴
     hobby VARCHAR(255),--趣味
     shop_id INTEGER NOT NULL,
@@ -38,10 +38,9 @@ CREATE TABLE menus (--メニュー情報
     menu_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     menu VARCHAR(255) NOT NULL,--メニュー
     price INTEGER NOT NULL,--値段
-    cut_time INTEGER,--施術時間
-    shop_id INTEGER NOT NULL,
-    FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
+    cut_time VARCHAR--施術時間
 );
+
 CREATE TABLE reserve (--予約情報
     reserveshop_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     shop_name VARCHAR(255) NOT NULL,--店舗名
@@ -50,20 +49,23 @@ CREATE TABLE reserve (--予約情報
     manu VARCHAR(255),--メニュー
     price INTEGER,--値段
     Date_and_Time TIMESTAMP,--予約日時
-    item VARCHAR(255)--購入品  
+    item VARCHAR(255)--購入品
+        
 );
 CREATE TABLE items (--商品情報
     item_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     item_name VARCHAR(255) NOT NULL,--商品名
     price INTEGER NOT NULL,--値段
-    features VARCHAR(255),--特徴
+    features VARCHAR(255),--商品説明
     stock INTEGER,--在庫
     shop_id INTEGER NOT NULL,
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
+
 CREATE TABLE users (--ユーザー情報
     user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(255) NOT NULL,
     user_password VARCHAR(255) NOT NULL
 );
+
 

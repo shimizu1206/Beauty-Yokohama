@@ -11,16 +11,18 @@
             <tr>
                 <th>ID</th>
                 <th>周辺店舗 </th>
+                <th>営業時間 </th>
                 <th>住所 </th>
                 <th>価格帯 </th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="shop : ${shopss}">
-                <td><span th:text="${shop.shopId}">yoyaku id</span></td>
-                <td><a th:href="@{/shopss/{shopId}(shopId=${shop.shopId})}"><span th:text="${shop.shopName}">yoyaku name1</span></a></td>
+            <tr th:each="shop : ${shops}">
+                <td><span th:text="${shop.shopId}">shopid</span></td>
+                <td><a th:href="@{/shops/{shopId}(shopId=${shop.shopId})}"><span th:text="${shop.shopName}">shopname</span></a></td>
+                <td><span th:text="${shop.openingHours}">shopopeningHours</span></td>
                 <td><span th:text="${shop.shopAddress}">shopAddress</span></td>
-                <td><span th:text="${shop.priceRange}">yoyaku kakaku</span></td>
+                <td><span th:text="${shop.priceRange}">shopkakaku</span>円</td>
             </tr>
         </tbody>
     </table>

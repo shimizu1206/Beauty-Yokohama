@@ -8,23 +8,29 @@
     <h3>アルバム詳細 </h3>
     <table>
         <tr>
-            <th>アルバム ID</th>
-            <td th:text="${yoyaku.yoyakuId}"></td>
+            <th>店舗ID </th>
+            <td th:text="${shop.shopId}"></td>
         </tr>
         <tr>
-            <th>タイトル </th>
-            <td th:text="${yoyaku.name1}"></td>
+            <th>店舗名 </th>
+            <td th:text="${shop.shopName}"></td>
         </tr>
         <tr>
-            <th>アーティスト </th>
-            <td th:text="${yoyaku.zyusyo}"></td>
+            <th>営業時間 </th>
+            <td th:text="${shop.openingHours}"></td>
         </tr>
         <tr>
-            <th>リリース日 </th>
-            <td th:text="${yoyaku.kakaku}"></td>
+            <th>店舗住所 </th>
+            <td th:text="${shop.shopAddress}"></td>
+        </tr>
+        <tr>
+            <th>価格帯 </th>
+            <td th:text="${shop.priceRange}">円</td>
         </tr>
     </table>
-    <a href="/albums">周辺店舗一覧に戻る </a>
+    <a href="/albums">周辺店舗一覧に戻る </a><br>
+    <a th:href="@{/shops/items/{shopId}(shopId=${shop.shopId})}">商品一覧 </a><br>
+    <a href="/shops/menus">メニュー一覧 </a>
     <div th:replace="~{layout :: footer}"></div>
 </body>
 

@@ -5,7 +5,7 @@ import lombok.Data;
 public class Shop {
     private long shopId;
     private String shopName;
-    private long openingHours;
+    private String openingHours;
     private String shopAddress;
     private String priceRange;
 }

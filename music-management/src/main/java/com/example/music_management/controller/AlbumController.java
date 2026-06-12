@@ -1,8 +1,12 @@
 package com.example.music_management.controller;
 
 import com.example.music_management.entity.Album;
+import com.example.music_management.entity.Item;
+import com.example.music_management.entity.Menu;
 import com.example.music_management.entity.Shop;
 import com.example.music_management.service.AlbumService;
+import com.example.music_management.service.ItemService;
+import com.example.music_management.service.MenuService;
 import com.example.music_management.service.ShopService;
 
 import org.springframework.stereotype.Controller;
@@ -21,10 +25,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class AlbumController {
     private final AlbumService albumService;//フィールド
     private final ShopService shopService;
+    private final ItemService itemService;
+    private final MenuService menuService;
 
-    public AlbumController(AlbumService albumService,ShopService shopService) {
+    public AlbumController(AlbumService albumService,ShopService shopService,ItemService itemService,MenuService menuService) {
         this.albumService = albumService;
         this.shopService = shopService;
+        this.itemService = itemService;
+        this.menuService = menuService; 
     }
 
     @GetMapping 
@@ -62,7 +70,7 @@ public class AlbumController {
     @GetMapping("/{shopId}")
     public String shops(@PathVariable long shopId, Model model) {
         Shop shop = shopService.getShopById(shopId);
-        model.addAttribute("shops", shop);
+        model.addAttribute("shop", shop);
         return "album/album-detail";
     }
 
@@ -83,6 +91,34 @@ public class AlbumController {
     public String updateAlbum(@PathVariable long albumId, Album album) {
         albumService.updateAlbum(albumId, album);//updateAlbumに引数でもらったidとalbumを渡す。
         return "redirect:/albums";
+    }
+
+    @GetMapping("/items")
+    public String items(Model model) {
+        List<Item> items = itemService.getAllItems();
+        model.addAttribute("items", items);
+        return "album/item-list";
+    }
+
+    @GetMapping("/items/{shopId}")
+    public String item(@PathVariable long shopId, Model model) {
+        List<Item> item = itemService.getItemsByshopId(shopId);
+        model.addAttribute("items", item);
+        return "album/item-list";
+    }
+
+    @GetMapping("/menus")
+    public String menus(Model model) {
+        List<Menu> menus = menuService.getAllMenus();
+        model.addAttribute("menus", menus);
+        return "album/menu-list";
+    }
+
+    @GetMapping("/menus/{menuId}")
+    public String menu(@PathVariable long menuId, Model model) {
+        Menu menu = menuService.getMenuById(menuId);
+        model.addAttribute("menu", menu);
+        return "album/menu-list";
     }
 
 }
