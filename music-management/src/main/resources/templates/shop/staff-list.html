@@ -21,13 +21,13 @@
         </thead>
         <tbody>
             <tr th:each="staff : ${staffs}">
-                <td><span th:text="${staff.staffId}">staffName</span></td>
-                <td><span th:text="${staff.itemName}">gender</span></td>
+                <td><span th:text="${staff.staffName}">staffName</span></td>
+                <td><span th:text="${staff.gender}">gender</span></td>
                 <td><span th:text="${staff.age}">age</span>円</td>
-                <td><span th:text="${staff.speciaty}">specialty;</td>
+                <td><span th:text="${staff.specialty}">specialty</td>
                 <td><span th:text="${staff.career}">career</span></td>
                 <td><span th:text="${staff.hobby}">hobby</span></td>
-                <td><span th:text="${staff.hobby}">shopId</span></td>
+                <td><span th:text="${staff.shopId}">shopId</span></td>
             </tr>
         </tbody>
     </table>
