@@ -1,13 +1,4 @@
 --ここで、具体的な要素を入れていく
-INSERT INTO albums (title, artist, release_date) VALUES
-    ('Hello World', 'Aurora Beats', '2021-08-20'),
-    ('Strings of Serenity', 'Harmony Collective', '2020-11-10'),
-    ('Cosmic Vibes', 'Galaxy Harmonics', '2024-01-18');
-INSERT INTO musics (title, duration, album_id) VALUES
-    ('Sunset', '00:03:45', 1),
-    ('Moonlight', '00:04:12', 1),
-    ('Eternal Memories', '00:05:45', 2);
-
 INSERT INTO shops (shop_name, opening_hours, shop_address,price_range) VALUES
   ('サイコム美容室', '10:00~21:00', '〇県〇市〇町','1000~5000'),
   ('美容室yokohama', '9:00~22:00', '〇県〇市〇町','2000~7000'),
@@ -22,7 +13,6 @@ INSERT INTO staff (staff_name, gender, age,specialty,career,hobby,shop_id) VALUE
   ('siori', '女性', 27,'パーマ',5,'映画',2),
   ('tanaka', '男性', 31,'パーマ',10,'旅行',3),
   ('eri', '女性', 25,'パーマ',1,'読書',3);
-
 
 INSERT INTO menus (menu, price, cut_time) VALUES
   ('カットのみ', 4000, '1時間'),
