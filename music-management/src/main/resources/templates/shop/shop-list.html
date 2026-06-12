@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head(アルバム一覧 )}"></head>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<body>
+    <div th:replace="~{layout :: header}"></div>
+    <h3>横浜周辺店舗一覧 </h3>
+    <table>
+        <div class="row g-4">
+        <div class="col-md-6 col-xl-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body" p th:each="shop : ${shops}">
+              <p class="card-text text-secondary" th:text="${shop.shopId}">駅から近い大型店舗です。</p>
+              <p class="card-text text-secondary" th:text="${shop.shopName}">駅から近い大型店舗です。</p>
+              <p class="card-text text-secondary" th:text="${shop.openingHours}">駅から近い大型店舗です。</p>
+              <p class="card-text text-secondary" th:text="${shop.shopAddress}">駅から近い大型店舗です。</p>
+              <p class="card-text text-secondary" th:text="${shop.priceRange}">駅から近い大型店舗です。</p>
+              <a th:href="@{/shops/{shopId}(shopId=${shop.shopId})}" class="btn btn-outline-primary w-100">詳細</a>
+            </div>
+          </div>
+        </div>
+    </table>
+    <div th:replace="~{layout :: footer}"></div>
+</body>
+
+</html>

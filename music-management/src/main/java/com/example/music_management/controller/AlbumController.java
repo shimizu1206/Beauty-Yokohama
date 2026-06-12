@@ -5,12 +5,12 @@ import com.example.music_management.entity.Item;
 import com.example.music_management.entity.Menu;
 import com.example.music_management.entity.Reserve;
 import com.example.music_management.entity.Shop;
+import com.example.music_management.entity.Staff;
 import com.example.music_management.service.AlbumService;
 import com.example.music_management.service.ItemService;
 import com.example.music_management.service.MenuService;
 import com.example.music_management.service.ShopService;
-import com.example.music_management.service.ReserveService;
-
+import com.example.music_management.service.StaffService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,22 +32,21 @@ public class AlbumController {
     private final ShopService shopService;
     private final ItemService itemService;
     private final MenuService menuService;
-    private final ReserveService reserveService;
+    private final StaffService staffService;
 
-
-    public AlbumController(AlbumService albumService,ShopService shopService,ItemService itemService,MenuService menuService,ReserveService reserveService) {
+    public AlbumController(AlbumService albumService,ShopService shopService,ItemService itemService,MenuService menuService,StaffService staffService) {
         this.albumService = albumService;
         this.shopService = shopService;
         this.itemService = itemService;
-        this.menuService = menuService;
-        this.reserveService = reserveService;
+        this.menuService = menuService; 
+        this.staffService = staffService;
     }
 
     @GetMapping 
      public String shops(Model model){
         List<Shop> shops = shopService.getAllShops();
         model.addAttribute("shops", shops);
-        return "album/album-htmllist";
+        return "shop/shop-list";
     }
     @GetMapping("/re")
      public String albums(Model model) { 
@@ -79,7 +78,7 @@ public class AlbumController {
     public String shops(@PathVariable long shopId, Model model) {
         Shop shop = shopService.getShopById(shopId);
         model.addAttribute("shop", shop);
-        return "album/album-detail";
+        return "shop/shop-detail";
     }
 
     @PostMapping("/{albumId}/delete")
@@ -106,7 +105,13 @@ public class AlbumController {
     public String item(@PathVariable long shopId, Model model) {
         List<Item> item = itemService.getItemsByshopId(shopId);
         model.addAttribute("items", item);
-        return "album/item-list";
+        return "shop/item-list";
+    }
+    @GetMapping("/staffs/{shopId}")
+    public String staff(@PathVariable long shopId, Model model) {
+        List<Staff> staff = staffService.getStaffsBystaffId(shopId);
+        model.addAttribute("staffs", staff);
+        return "shop/staff-list";
     }
 
 
