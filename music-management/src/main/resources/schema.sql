@@ -38,18 +38,22 @@ CREATE TABLE menus (--メニュー情報
     menu_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     menu VARCHAR(255) NOT NULL,--メニュー
     price INTEGER NOT NULL,--値段
-    cut_time VARCHAR--施術時間
+    cut_time VARCHAR,--施術時間
+    shop_id INTEGER NOT NULL,
+    FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
 
 CREATE TABLE reserve (--予約情報
-    reserveshop_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    reserve_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     shop_name VARCHAR(255) NOT NULL,--店舗名
     user_name VARCHAR(255) NOT NULL,--利用者名
     staff_name VARCHAR(255),--美容師名
-    manu VARCHAR(255),--メニュー
+    menu VARCHAR(255),--メニュー
     price INTEGER,--値段
     Date_and_Time TIMESTAMP,--予約日時
-    item VARCHAR(255)--購入品
+    item VARCHAR(255),--購入品
+    shop_id INTEGER NOT NULL,
+    FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
         
 );
 CREATE TABLE items (--商品情報

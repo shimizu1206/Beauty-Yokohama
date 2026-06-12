@@ -24,10 +24,10 @@ INSERT INTO staff (staff_name, gender, age,specialty,Career,hobby,shop_id) VALUE
   ('eri', '女性', 25,'パーマ',1,'読書',3);
 
 
-INSERT INTO menus (menu, price, cut_time) VALUES
-  ('カットのみ', 4000, '1時間'),
-  ('カットシャンプー', 5000, '1時間30分'),
-  ('カットカラー、', 10000, '2時間');
+INSERT INTO menus (menu, price, cut_time,shop_id) VALUES
+  ('カットのみ', 4000, '1時間',1),
+  ('カットシャンプー', 5000, '1時間30分',2),
+  ('カットカラー、', 10000, '2時間',3);
 
 INSERT INTO items (item_name, price, features,stock,shop_id) VALUES
   ('シャンプー', 2000, '「 髪の毛をサラサラに 」',10,1),

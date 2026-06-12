@@ -9,21 +9,19 @@
     <table>
         <thead>
             <tr>
-                <th>ID </th>
-                <th>名前 </th>
+                <th>メニューID </th>
+                <th>メニュー </th>
                 <th>値段 </th>
-                <th>説明 </th>
-                <th>在庫 </th>
+                <th>施術時間 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="item : ${items}">
-                <td><span th:text="${item.itemId}">item id</span></td>
-                <td><span th:text="${item.itemName}">item name</span></td>
-                <td><span th:text="${item.price}">item price</span>円</td>
-                <td><span th:text="${item.features}">item features</span></td>
-                <td><span th:text="${item.stock}">item stock</span></td>
+            <tr th:each="menu : ${menus}">
+                <td><span th:text="${menu.menuId}">menu id</span></td>
+                <td><span th:text="${menu.menu}">menu</span></td>
+                <td><span th:text="${menu.price}">menu price</span>円</td>
+                <td><span th:text="${menu.cutTime}">cut time</span></td>
                 <td>
                 </td>
             </tr>

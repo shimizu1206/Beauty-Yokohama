@@ -5,7 +5,7 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>アルバム詳細 </h3>
+    <h3>店舗詳細 </h3>
     <table>
         <tr>
             <th>店舗ID </th>
@@ -28,9 +28,10 @@
             <td th:text="${shop.priceRange}">円</td>
         </tr>
     </table>
-    <a href="/albums">周辺店舗一覧に戻る </a><br>
-    <a th:href="@{/shops/items/{shopId}(shopId=${shop.shopId})}">商品一覧 </a><br>
-    <a href="/shops/menus">メニュー一覧 </a>
+    <a th:href="@{/shops/items/{shopId}(shopId=${shop.shopId})}">・商品一覧 </a><br>
+    <a th:href="@{/shops/menus/{shopId}(shopId=${shop.shopId})}">・メニュー一覧 </a><br>
+    <a>・この店舗で予約する </a><br> 
+    <a href="/albums">・周辺店舗一覧に戻る </a><br>
     <div th:replace="~{layout :: footer}"></div>
 </body>
 
