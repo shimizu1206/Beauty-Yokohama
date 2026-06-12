@@ -5,6 +5,7 @@ import com.example.music_management.mapper.ReserveMapper;
 import com.example.music_management.entity.Reserve;
 import org.springframework.stereotype.Repository;
 
+@Repository
 public class ReserveRepository {
     private final ReserveMapper reserveMapper;
 

@@ -1,10 +1,12 @@
 package com.example.music_management.service;
 
 import com.example.music_management.repository.ReserveRepository;
-import com.example.music_management.entity.Album;
+
+import org.springframework.stereotype.Service;
+
 import com.example.music_management.entity.Reserve;
 import com.example.music_management.form.ReserveForm;
-
+@Service
 public class ReserveService {
     private final ReserveRepository reserveRepository;
     public ReserveService(ReserveRepository reserveRepository) {

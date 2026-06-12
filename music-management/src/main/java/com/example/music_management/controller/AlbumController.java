@@ -10,8 +10,6 @@ import com.example.music_management.service.AlbumService;
 import com.example.music_management.service.ItemService;
 import com.example.music_management.service.MenuService;
 import com.example.music_management.service.ReserveService;
-import com.example.music_management.service.ReserveService;
-import com.example.music_management.service.ReserveService;
 import com.example.music_management.service.ShopService;
 import com.example.music_management.service.StaffService;
 
@@ -128,7 +126,7 @@ public class AlbumController {
         return "album/menu-list";
     }
 
-    @GetMapping("/new") // 画面から入力のところ
+    /*@GetMapping("/new") // 画面から入力のところ
     public String reserveForm(Model model) {// getの時はhtmlに渡すからmodelを使う？
         ReserveForm reserveForm = new ReserveForm(); // albumform型のalbumformを作成
         model.addAttribute("reserveForm", reserveForm);// modelにalbumformという名前でalbumformを入れる
@@ -139,6 +137,6 @@ public class AlbumController {
     public String createReserve(ReserveForm reserveForm) {
         reserveService.createReserve(reserveForm);
         return "redirect:/albums";
-    }
+    }*/
 
 }
