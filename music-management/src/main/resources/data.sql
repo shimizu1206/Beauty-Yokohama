@@ -25,4 +25,7 @@ INSERT INTO items (item_name, price, features,stock,shop_id) VALUES
   ('リンス', 2000, '「 つやつやに 」',20,2),
   ('ワックス', 3000, '「 濡れ感のある髪に 」',30,3);
 
+INSERT INTO kutis (age,gender,kansou) VALUES
+  ('19','男','良かったね');
+
   INSERT INTO users (username, password) VALUES ('sample', '$2a$08$hBocxV325GV9RKzHR.lHreJr8DsMrkg6vg0kRTbNnBvUFknu670GC');
