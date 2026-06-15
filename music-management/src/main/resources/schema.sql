@@ -47,10 +47,11 @@ CREATE TABLE items (--商品情報
     shop_id INTEGER NOT NULL,
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
-CREATE TABLE users (--ユーザー情報
+CREATE TABLE users (
     user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    user_name VARCHAR(255) NOT NULL,
-    user_password VARCHAR(255) NOT NULL
+    username VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(60) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
