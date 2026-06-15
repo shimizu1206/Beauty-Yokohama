@@ -121,13 +121,16 @@ public class AlbumController {
         return "shop/menu-list";
     }
 
-    @GetMapping("/new/{shopId}") // 画面から入力のところ
+   @GetMapping("/new/{shopId}") // 画面から入力のところ
     public String reserveForm(@PathVariable long shopId, Model model) {// getの時はhtmlに渡すからmodelを使う？
         ReserveForm reserveForm = new ReserveForm(); // albumform型のalbumformを作成
         List<Menu> menu = menuService.getMenusByshopId(shopId);
         List<Staff> staff = staffService.getStaffsBystaffId(shopId);
         List<Item> item = itemService.getItemsByshopId(shopId);
-        model.addAttribute("reserveForm", reserveForm);// modelにalbumformという名前でalbumformを入れる
+        Shop shop = shopService.getShopById(shopId);
+        reserveForm.setShopName(shop.getShopName());
+        reserveForm.setShopId(shop.getShopId());
+        model.addAttribute("reserveForm", reserveForm);
         model.addAttribute("menus", menu);
         model.addAttribute("staffs", staff);
         model.addAttribute("items", item);

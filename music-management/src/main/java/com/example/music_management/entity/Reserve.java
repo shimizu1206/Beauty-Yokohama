@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 public class Reserve {
     private long reserveId;
     private String shopName;
+    private long shopId;
     private String userName;
     private String staffName;
     private String menu;

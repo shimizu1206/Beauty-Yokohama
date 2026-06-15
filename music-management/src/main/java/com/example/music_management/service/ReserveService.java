@@ -22,6 +22,7 @@ public class ReserveService {
         reserve.setPrice(reserveForm.getPrice());
         reserve.setDateAndTime(reserveForm.getDateAndTime());
         reserve.setItem(reserveForm.getItem());
+        reserve.setShopId(reserveForm.getShopId());
         reserveRepository.insertReserve(reserve);
     }
 }

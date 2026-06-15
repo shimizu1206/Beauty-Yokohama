@@ -8,6 +8,7 @@ import lombok.Data;
 
 public class ReserveForm {
     private String shopName;
+    private long shopId;
     private String userName;
     private String staffName;
     private String menu;

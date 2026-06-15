@@ -7,6 +7,12 @@
     <div th:replace="~{layout :: header}"></div>
     <h3>美容室予約 </h3>
     <form th:action="@{/shops/new}" th:object="${reserveForm}" method="post">
+
+        <div>
+            <label for="shopName">美容室名： </label>
+            <input th:field="*{shopName}">
+            <input th:field="*{shopId}" type="hidden">
+        </div>
         <div>
             <label for="userName">予約者名： </label>
             <input type="text" id="userName" name="userName" th:field="*{userName}">
