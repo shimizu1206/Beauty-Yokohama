@@ -118,12 +118,12 @@ public class AlbumController {
         return "shop/staff-list";
     }
 
-
+    
     @GetMapping("/menus/{shopId}")
     public String menu(@PathVariable long shopId, Model model) {
         List<Menu> menu = menuService.getMenusByshopId(shopId);
         model.addAttribute("menus", menu);
-        return "album/menu-list";
+        return "shop/menu-list";
     }
 
     /*@GetMapping("/new") // 画面から入力のところ
