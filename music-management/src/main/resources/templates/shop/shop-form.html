@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head(アルバム一覧 )}"></head>
+
+<body>
+    <div th:replace="~{layout :: header}"></div>
+    <h3>美容室予約 </h3>
+    <form th:action="@{/shops/new}" th:object="${reserveForm}" method="post">
+        <div>
+            <label for="userName">予約者名： </label>
+            <input type="text" id="userName" name="userName" th:field="*{userName}">
+        </div>
+        <div>
+            <label for="staffName">指名： </label>
+            <select name="staffName" id="staffName">
+                <option value="">--美容師を選択してください--</option>
+                <option th:each="staff : ${staffs}" th:value="${staff.staffName}" th:text="${staff.staffName}"></option>
+            </select>
+        </div>
+        <div>
+            <label for="menu">メニュー: </label>
+            <select name="menu" id="menu">
+                <option value="">--メニューを選択してください--</option>
+                <option th:each="menu : ${menus}" th:value="${menu.menu}" th:text="${menu.menu}"></option>
+            </select>
+
+        </div>
+        <div>
+            <label for="price">価格: </label>
+            <input type="text" id="price" name="price" th:field="*{price}">
+        </div>
+        <div>
+            <label for="DateAndTime">予約時間: </label>
+            <input type="datetime-local" id="DateAndTime" name="DateAndTime" th:field="*{DateAndTime}">
+        </div>
+        <div>
+            <label for="item">購入品: </label>
+            <select name="item" id="item">
+                <option value="">--購入品を選択してください--</option>
+                <option th:each="item : ${items}" th:value="${item.itemName}" th:text="${item.itemName}"></option>
+            </select>
+        </div>
+        <button type="submit">予約する</button>
+    </form>
+    <div th:replace="~{layout :: footer}"></div>
+</body>
+
+</html>

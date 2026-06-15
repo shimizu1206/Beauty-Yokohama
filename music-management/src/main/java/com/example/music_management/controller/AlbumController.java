@@ -3,7 +3,7 @@ package com.example.music_management.controller;
 import com.example.music_management.entity.Album;
 import com.example.music_management.entity.Item;
 import com.example.music_management.entity.Menu;
-import com.example.music_management.entity.Reserve;
+
 import com.example.music_management.entity.Shop;
 import com.example.music_management.entity.Staff;
 import com.example.music_management.service.AlbumService;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
-import com.example.music_management.form.AlbumForm;
+
 import com.example.music_management.form.ReserveForm;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,7 +64,7 @@ public class AlbumController {
         return entity;
     }
     
-    @GetMapping("/new")//画面から入力のところ
+    /*@GetMapping("/new")//画面から入力のところ
     public String albumForm(Model model) {//getの時はhtmlに渡すからmodelを使う？
         AlbumForm albumForm = new AlbumForm(); //albumform型のalbumformを作成
         model.addAttribute("albumForm", albumForm);//modelにalbumformという名前でalbumformを入れる
@@ -76,7 +76,7 @@ public class AlbumController {
     public String createAlbum(AlbumForm albumForm) {
         albumService.createAlbum(albumForm);
         return "redirect:/albums";
-    }
+    }*/
 
     @GetMapping("/{shopId}")
     public String shops(@PathVariable long shopId, Model model) {
@@ -126,17 +126,24 @@ public class AlbumController {
         return "shop/menu-list";
     }
 
-    /*@GetMapping("/new") // 画面から入力のところ
-    public String reserveForm(Model model) {// getの時はhtmlに渡すからmodelを使う？
+    @GetMapping("/new/{shopId}") // 画面から入力のところ
+    public String reserveForm(@PathVariable long shopId, Model model) {// getの時はhtmlに渡すからmodelを使う？
         ReserveForm reserveForm = new ReserveForm(); // albumform型のalbumformを作成
+        List<Menu> menu = menuService.getMenusByshopId(shopId);
+        List<Staff> staff = staffService.getStaffsBystaffId(shopId);
+        List<Item> item = itemService.getItemsByshopId(shopId);
         model.addAttribute("reserveForm", reserveForm);// modelにalbumformという名前でalbumformを入れる
-        return "album/album-form";// ここのhtmlに返す
+        model.addAttribute("menus", menu);
+        model.addAttribute("staffs", staff);
+        model.addAttribute("items", item);
+
+        return "shop/shop-form";// ここのhtmlに返す
     }
 
     @PostMapping("/new")
     public String createReserve(ReserveForm reserveForm) {
         reserveService.createReserve(reserveForm);
-        return "redirect:/albums";
-    }*/
+        return "redirect:/shops";
+    }
 
 }

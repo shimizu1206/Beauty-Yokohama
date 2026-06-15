@@ -31,7 +31,8 @@
     <a href="/shops">周辺店舗一覧に戻る </a><br>
     <a th:href="@{/shops/items/{shopId}(shopId=${shop.shopId})}">商品一覧 </a><br>
     <a th:href="@{/shops/staffs/{shopId}(shopId=${shop.shopId})}">美容師一覧 </a><br>
-    <a th:href="@{/shops/menus/{shopId}(shopId=${shop.shopId})}">メニュー一覧 </a>
+    <a th:href="@{/shops/menus/{shopId}(shopId=${shop.shopId})}">メニュー一覧 </a><br>
+    <a th:href="@{/shops/new/{shopId}(shopId=${shop.shopId})}">美容室予約 </a>
     <div th:replace="~{layout :: footer}"></div>
 </body>
 
