@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{layout :: head(アルバム詳細 )}"></head>
+<head th:replace="~{layout :: head(店舗詳細)}"></head>
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>店舗詳細 </h3>
+    <!-- <h3>店舗詳細 </h3>
     <table>
         <tr>
             <th>店舗ID </th>
@@ -33,8 +33,107 @@
     <a th:href="@{/shops/staffs/{shopId}(shopId=${shop.shopId})}">美容師一覧 </a><br>
     <a th:href="@{/shops/menus/{shopId}(shopId=${shop.shopId})}">メニュー一覧 </a><br>
     <a th:href="@{/shops/new/{shopId}(shopId=${shop.shopId})}">美容室予約 </a><br>
-    <a th:href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}">口コミ入力 </a>
+    <a th:href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}">口コミ入力 </a> -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <h3>店舗詳細</h3>
+        </div>
+        <div class="card h-100 shadow-sm p-4 my-4">
+            <div class="row">
+                <div class="col-12">
+                    <!-- <div hidden th:text="${shop.shopId}"></div> -->
+                    <h4 th:text="${shop.shopName}">店舗名</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    <img src="../../../../image/biyouin.png" alt="店舗画像" height="300">
+                </div>
+                <div class="col-7">
+                    <div class="row">
+                        <h5>髪だけでなく、あなたの人生と心に寄り添うサロン。 安心・誠実・丁寧を大切に、未来まで続くキレイを。</h5>
+                    </div>
+
+                    <!-- テーブル -->
+                    <div class="row mt-4 me-4">
+                        <table class="table table-striped-columns">
+                            <tr>
+                                <th>店舗住所</th>
+                                <td th:text="${shop.shopAddress}">横浜市??区??町?-??-??</td>
+
+                                <th>営業時間</th>
+                                <td th:text="${shop.openingHours}">??:??～??:??</td>
+                            </tr>
+                            <tr>
+                                <th>価格帯</th>
+                                <td th:text="${shop.priceRange}">&yen;?,000～&yen;?,000</td>
+
+                                <th>スタッフ数</th>
+                                <td>17人</td>
+                            </tr>
+                            <tr>
+                                <th>クチコミ</th>
+                                <td><a href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}">20件</a></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- ボタン -->
+                    <div class="row mt-4">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a th:href="@{/shops/staffs/{shopId}(shopId=${shop.shopId})}" class="btn btn-secondary">スタイリスト一覧はこちらから</a>
+                             <a th:href="@{/shops/items/{shopId}(shopId=${shop.shopId})}" class="btn btn-secondary">商品一覧はこちらから</a>
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a th:href="@{/shops/menus/{shopId}(shopId=${shop.shopId})}" class="btn btn-secondary">メニューはこちらから</a>
+                            <a th:href="@{/shops/new/{shopId}(shopId=${shop.shopId})}" class="btn btn-danger">予約はこちらから</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="/shops">周辺店舗一覧に戻る </a>
+    </div>
     <div th:replace="~{layout :: footer}"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
