@@ -13,5 +13,6 @@ public interface ShopMapper {
 
     @Select("SELECT * FROM shops WHERE shop_id = #{shopId}")
     Shop selectShopById(long shopId);
+
 }
 

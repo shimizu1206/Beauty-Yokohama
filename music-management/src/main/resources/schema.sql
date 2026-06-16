@@ -3,7 +3,8 @@ CREATE TABLE shops (--店舗情報
     shop_name VARCHAR(255) NOT NULL,--店舗名
     opening_hours VARCHAR(255),--営業時間
     shop_address VARCHAR(255),--住所
-    price_range VARCHAR(255) DEFAULT '--~--'--価格帯
+    price_range VARCHAR(255) DEFAULT '--~--',--価格帯
+    picture VARCHAR(255)
 );
 CREATE TABLE staff (--美容師情報
     staff_id INTEGER AUTO_INCREMENT PRIMARY KEY,

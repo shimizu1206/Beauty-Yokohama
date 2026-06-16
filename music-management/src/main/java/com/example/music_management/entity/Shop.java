@@ -8,4 +8,5 @@ public class Shop {
     private String openingHours;
     private String shopAddress;
     private String priceRange;
+    private String picture;
 }

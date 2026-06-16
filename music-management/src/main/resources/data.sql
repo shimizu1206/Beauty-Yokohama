@@ -1,10 +1,10 @@
 --ここで、具体的な要素を入れていく
-INSERT INTO shops (shop_name, opening_hours, shop_address,price_range) VALUES
-  ('サイコム美容室', '10:00~21:00', '〇県〇市〇町','1000~5000'),
-  ('美容室yokohama', '9:00~22:00', '〇県〇市〇町','2000~7000'),
-  ('cut横浜', '10:00~21:30', '〇県〇市〇町','3000~10000'),
-  ('Haircut横浜', '10:00~22:30', '〇県〇市〇町','3000~15000'),
-  ('横浜style', '8:00~21:30', '〇県〇市〇町','3000~10000');
+INSERT INTO shops (shop_name, opening_hours, shop_address,price_range,picture) VALUES
+  ('サイコム美容室', '10:00~21:00', '〇県〇市〇町','1000~5000','\image\original.jpg'),
+  ('美容室yokohama', '9:00~22:00', '〇県〇市〇町','2000~7000','C:\\images\\shop1.jpg'),
+  ('cut横浜', '10:00~21:30', '〇県〇市〇町','3000~10000','C:\\images\\shop1.jpg'),
+  ('Haircut横浜', '10:00~22:30', '〇県〇市〇町','3000~15000','C:\\images\\shop1.jpg'),
+  ('横浜style', '8:00~21:30', '〇県〇市〇町','3000~10000','C:\\images\\shop1.jpg');
 
 INSERT INTO staff (staff_name, gender, age,specialty,career,hobby,shop_id) VALUES
   ('takeru', '男性', 30,'パーマ',5,'キャンプ',1),
