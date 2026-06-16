@@ -58,6 +58,6 @@ CREATE TABLE kutis (
    age VARCHAR(255) UNIQUE NOT NULL,
    gender VARCHAR(255) ,
    kansou VARCHAR(255) ,
-   shop_id INTEGER NOT NULL,
+   shop_id INTEGER NOT NULL
 );
 
