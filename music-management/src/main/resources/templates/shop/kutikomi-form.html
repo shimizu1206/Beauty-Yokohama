@@ -29,7 +29,9 @@
        <div>
            <label for="kansou">アーティスト：</label>
            <input type="text" id="kansou" name="kansou" th:field="*{kansou}">
-       </div> <input type="hidden" id="shopId" name="shopId" th:field="*{shopId}">
+       </div> 
+       <input type="hidden" id="shopId" name="shopId" th:field="*{shopId}">
+    </div>
        <button type="submit">追加</button>
    </form>
    <div th:replace="~{layout :: footer}"></div>

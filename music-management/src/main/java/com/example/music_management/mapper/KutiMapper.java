@@ -13,6 +13,6 @@ public interface KutiMapper{
    @Options(useGeneratedKeys = true, keyProperty = "kutiId")
    void insertKutikomi(Kuti kuti);
 
-       @Select("SELECT * FROM items WHERE shop_id = #{shopId}")
+       @Select("SELECT * FROM kutis WHERE shop_id = #{shopId}")
     List<Kuti> selectKutisByshopId(long shopId);
 }

@@ -26,6 +26,7 @@ public class KutiController {
         List<Kuti> Kutis = kutiService.getKutisByshopId(shopId);
         Shop shop = shopService.getShopById(shopId);
         KutiForm KutiForms = new KutiForm();
+        KutiForms.setShopId(shopId);
         model.addAttribute("shop", shop);
         model.addAttribute("Kutis", Kutis);
         model.addAttribute("KutiForms", KutiForms);

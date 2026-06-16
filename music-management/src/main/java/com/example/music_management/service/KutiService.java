@@ -18,6 +18,7 @@ public class KutiService {
        kuti.setAge(kutiForm.getAge());
        kuti.setGender(kutiForm.getGender());
        kuti.setKansou(kutiForm.getKansou());
+       kuti.setShopId(kutiForm.getShopId());
        kutiRepository.insertKutikomi(kuti);
   }
       public List<Kuti> getKutisByshopId(long shopId){
