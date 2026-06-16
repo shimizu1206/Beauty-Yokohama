@@ -18,14 +18,14 @@ public class KutiController {
     public KutiController(KutiService kutiService){
         this.kutiService = kutiService;
     }
-    @GetMapping("shop/Kutis/{shopId}")
-     public String item(@PathVariable long shopId, Model model) {
-        List<Kuti> KutiForm = kutiService.getKutisByshopId(shopId);
-        model.addAttribute("KutiForm", KutiForm);
+    @GetMapping("shops/Kutis/{shopId}")
+     public String kuti(@PathVariable long shopId, Model model) {
+        List<Kuti> KutiForms = kutiService.getKutisByshopId(shopId);
+        model.addAttribute("KutiForms", KutiForms);
         return "shop/kutikomi-form";
     }
 
-    @PostMapping("shop/Kutis/{shopId}")
+    @PostMapping("shops/Kutis/{shopId}")
     public String createAlbum(KutiForm kutiForm) {
         kutiService.createKutikomi(kutiForm);
         return "redirect:/Kutis";

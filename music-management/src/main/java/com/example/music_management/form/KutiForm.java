@@ -7,4 +7,5 @@ public class KutiForm {
    private String age;
    private String gender;
    private String kansou;
+   private long shopId;
 }

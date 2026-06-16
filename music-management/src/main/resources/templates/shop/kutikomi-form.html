@@ -5,6 +5,20 @@
    <h3>アルバム登録</h3>
 
     <form th:action="@{/shops/kutis}" th:object="${KutiForm}" method="post">
+         <thead>
+            <tr>
+                <th>年齢</th>
+                <th>性別</th>
+                <th>乾燥</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="kutiForm : ${kutiForms}">
+                <td><span th:text="${kutiForm.age}">age</span></td>
+                <td><span th:text="${kutiForm.gender}">gender</span></td>
+                <td><span th:text="${kutiForm.kansou}">age</span></td>
+            </tr>
+        </tbody>
        <div>
            <label for="age">タイトル：</label>
            <input type="text" id="age" name="age" th:field="*{age}">
@@ -16,7 +30,7 @@
        <div>
            <label for="kansou">アーティスト：</label>
            <input type="text" id="kansou" name="kansou" th:field="*{kansou}">
-       </div>
+       </div> <input type="hidden" id="shopId" name="shopId" th:field="*{shopId}">
        <button type="submit">追加</button>
    </form>
    <div th:replace="~{layout :: footer}"></div>
