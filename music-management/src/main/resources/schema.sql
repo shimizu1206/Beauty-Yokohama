@@ -57,6 +57,7 @@ CREATE TABLE kutis (
    kuti_id INTEGER AUTO_INCREMENT PRIMARY KEY,
    age VARCHAR(255) UNIQUE NOT NULL,
    gender VARCHAR(255) ,
-   kansou VARCHAR(255) 
+   kansou VARCHAR(255) ,
+   shop_id INTEGER NOT NULL,
 );
 

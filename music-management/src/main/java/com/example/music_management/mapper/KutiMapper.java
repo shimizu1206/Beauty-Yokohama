@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface KutiMapper{
-       @Insert("INSERT INTO kutis (age,gender,kansou) VALUES (#{age}, #{gender}, #{kansou})")
+       @Insert("INSERT INTO kutis (age,gender,kansou,#{shopId}) VALUES (#{age}, #{gender}, #{kansou},#{shopId})")
    @Options(useGeneratedKeys = true, keyProperty = "kutiId")
    void insertKutikomi(Kuti kuti);
 
