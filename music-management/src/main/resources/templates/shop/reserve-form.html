@@ -13,6 +13,7 @@
             <input th:field="*{shopName}">
             <input th:field="*{shopId}" type="hidden">
         </div>
+
         <div>
             <label for="userName">予約者名： </label>
             <input type="text" id="userName" name="userName" th:field="*{userName}">
@@ -32,6 +33,7 @@
             </select>
 
         </div>
+        
         <div>
             <label for="price">価格: </label>
             <input type="text" id="price" name="price" th:field="*{price}">
@@ -47,6 +49,21 @@
                 <option th:each="item : ${items}" th:value="${item.itemName}" th:text="${item.itemName}"></option>
             </select>
         </div>
+        <script th:inline="javascript">
+            const m = document.getElementById('menu');
+            const p = document.getElementById('price');
+
+            m.addEventListener('change', function () {
+                const i = /*[[${menus}]]*/[];
+                for (const n of i) {
+                    if (this.value === n.menu) {
+                        p.value = n.price;
+                    }
+                }
+            });
+                
+
+        </script>
         <button type="submit">予約する</button>
     </form>
     <div th:replace="~{layout :: footer}"></div>

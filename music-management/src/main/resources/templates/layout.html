@@ -15,6 +15,7 @@
             <ul>
                 <li sec:authorize="isAuthenticated()"><a th:href="@{/shops}">横浜周辺店舗一覧</a></li>
                 <li sec:authorize="isAuthenticated()"><a th:href="@{/shop/Kutis}">確認画面 </a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/shops/reserved}">予約済み店舗 </a></li>
                 <li sec:authorize="isAnonymous()"><a th:href="@{/register}">ユーザ登録</a></li>
                 <li sec:authorize="isAuthenticated()">
                 <form th:action="@{/logout}" method="post">

@@ -2,6 +2,8 @@ package com.example.music_management.service;
 
 import com.example.music_management.repository.ReserveRepository;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.music_management.entity.Reserve;
@@ -24,5 +26,9 @@ public class ReserveService {
         reserve.setItem(reserveForm.getItem());
         reserve.setShopId(reserveForm.getShopId());
         reserveRepository.insertReserve(reserve);
+    }
+
+    public List<Reserve> getReserveById() {//
+        return reserveRepository.getReserveById();
     }
 }

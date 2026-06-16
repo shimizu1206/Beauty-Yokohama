@@ -2,6 +2,7 @@ package com.example.music_management.controller;
 import com.example.music_management.entity.Album;
 import com.example.music_management.entity.Item;
 import com.example.music_management.entity.Menu;
+import com.example.music_management.entity.Reserve;
 import com.example.music_management.entity.Shop;
 import com.example.music_management.entity.Staff;
 import com.example.music_management.service.AlbumService;
@@ -135,13 +136,19 @@ public class AlbumController {
         model.addAttribute("staffs", staff);
         model.addAttribute("items", item);
 
-        return "shop/shop-form";// ここのhtmlに返す
+        return "shop/reserve-form";// ここのhtmlに返す
     }
 
     @PostMapping("/new")
     public String createReserve(ReserveForm reserveForm) {
         reserveService.createReserve(reserveForm);
         return "redirect:/shops";
+    }
+    @GetMapping("/reserved")
+    public String Reaserved(Model model){
+        List<Reserve> reserved = reserveService.getReserveById();
+        model.addAttribute("reserved",reserved);
+        return "shop/reserved-form";
     }
 
 }
