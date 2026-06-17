@@ -26,4 +26,8 @@ public class CustomUserDetails implements UserDetails {
     public long getUserId(){
         return user.getUserId();
     }
+
+    public boolean getUserCheck(){
+        return user.isUserCheck();
+    } 
 }

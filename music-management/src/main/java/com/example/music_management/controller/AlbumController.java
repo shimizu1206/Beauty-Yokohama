@@ -153,6 +153,7 @@ public class AlbumController {
     @GetMapping("/reserved")
     public String Reaserved(Model model ,@AuthenticationPrincipal CustomUserDetails userDetails){
         List<Reserve> reserved = reserveService.getReserveById(userDetails.getUserId());
+        model.addAttribute("user",userDetails);
         model.addAttribute("reserved",reserved);
         return "shop/reserved-form";
     }
