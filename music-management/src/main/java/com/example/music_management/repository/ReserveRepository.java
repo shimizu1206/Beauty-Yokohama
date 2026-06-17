@@ -20,8 +20,8 @@ public class ReserveRepository {
         reserveMapper.insertReserve(reserve);
     }
 
-    public List<Reserve> getReserveById() {//
-        return reserveMapper.selectreserveById();
+    public List<Reserve> getReserveById(long userId) {//
+        return reserveMapper.selectreserveById(userId);
     } 
 
      public void deleteReserve(long reserveId) {

@@ -14,4 +14,5 @@ public class Reserve {
     private int price;
     private LocalDateTime DateAndTime;
     private String item;
+    private long userId;
 }

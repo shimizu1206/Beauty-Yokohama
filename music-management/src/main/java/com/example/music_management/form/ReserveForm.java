@@ -15,4 +15,5 @@ public class ReserveForm {
     private int price;
     private LocalDateTime DateAndTime;
     private String item;
+    private long UserId;
 }

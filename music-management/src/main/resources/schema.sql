@@ -36,6 +36,7 @@ CREATE TABLE reserve (--予約情報
     Date_and_Time TIMESTAMP UNIQUE,--予約日時
     item VARCHAR(255),--購入品
     shop_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
         
 );

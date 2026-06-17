@@ -25,11 +25,12 @@ public class ReserveService {
         reserve.setDateAndTime(reserveForm.getDateAndTime());
         reserve.setItem(reserveForm.getItem());
         reserve.setShopId(reserveForm.getShopId());
+        reserve.setUserId(reserveForm.getUserId());
         reserveRepository.insertReserve(reserve);
     }
 
-    public List<Reserve> getReserveById() {//
-        return reserveRepository.getReserveById();
+    public List<Reserve> getReserveById(long userId) {//
+        return reserveRepository.getReserveById(userId);
     }
 
     public void deleteReserve(long reserveId) {

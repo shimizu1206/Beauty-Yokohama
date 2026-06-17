@@ -11,6 +11,8 @@ import com.example.music_management.service.MenuService;
 import com.example.music_management.service.ReserveService;
 import com.example.music_management.service.ShopService;
 import com.example.music_management.service.StaffService;
+
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import com.example.music_management.form.ReserveForm;
+import com.example.music_management.securiry.CustomUserDetails;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -140,13 +144,15 @@ public class AlbumController {
     }
 
     @PostMapping("/new")
-    public String createReserve(ReserveForm reserveForm) {
+    public String createReserve(ReserveForm reserveForm,@AuthenticationPrincipal CustomUserDetails userDetails) {
+        reserveForm.setUserId(userDetails.getUserId());
         reserveService.createReserve(reserveForm);
         return "redirect:/shops";
     }
+
     @GetMapping("/reserved")
-    public String Reaserved(Model model){
-        List<Reserve> reserved = reserveService.getReserveById();
+    public String Reaserved(Model model ,@AuthenticationPrincipal CustomUserDetails userDetails){
+        List<Reserve> reserved = reserveService.getReserveById(userDetails.getUserId());
         model.addAttribute("reserved",reserved);
         return "shop/reserved-form";
     }
