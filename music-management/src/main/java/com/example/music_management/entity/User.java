@@ -9,5 +9,7 @@ public class User {
     private long userId;
     private String username;
     private String password;
+    private String userAddress;
+    private boolean userCheck;
     private LocalDateTime createdAt;
 }
