@@ -151,4 +151,10 @@ public class AlbumController {
         return "shop/reserved-form";
     }
 
+    @PostMapping("/reserved/{reservedId}/delete")
+    public String deleteReseve(@PathVariable long reservedId) {
+        reserveService.deleteReserve(reservedId);
+        return "redirect:/shops";
+    }
+
 }

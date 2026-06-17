@@ -28,6 +28,11 @@
                 <td><span th:text="${reservedinfo.price}">price</span>円</td><br>
                 <td><span th:text="${reservedinfo.DateAndTime}">DateAndTime</span></td><br>
                 <td><span th:text="${reservedinfo.item}">item</span></td>
+                <td>
+                    <form th <form th:action="@{/shops/reserved/{reservedId}/delete(reservedId=${reservedinfo.reserveId})}" method="post">
+                        <button type="submit">予約取消</button>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>

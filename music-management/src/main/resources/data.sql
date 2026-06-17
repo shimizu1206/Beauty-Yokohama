@@ -20,10 +20,10 @@ INSERT INTO menus (menu, price, cut_time,shop_id) VALUES
   ('カットシャンプー', 5000, '1時間30分',2),
   ('カットカラー、', 10000, '2時間',3);
 
-INSERT INTO items (item_name, price, features,stock,shop_id) VALUES
-  ('シャンプー', 2000, '「 髪の毛をサラサラに 」',10,1),
-  ('リンス', 2000, '「 つやつやに 」',20,2),
-  ('ワックス', 3000, '「 濡れ感のある髪に 」',30,3);
+INSERT INTO items (item_name, price, features,shop_id) VALUES
+  ('シャンプー', 2000, '「 髪の毛をサラサラに 」',1),
+  ('リンス', 2000, '「 つやつやに 」',2),
+  ('ワックス', 3000, '「 濡れ感のある髪に 」',3);
 
 INSERT INTO kutis (age,gender,kansou,shop_id) VALUES
   ('19','男','良かったね',1);

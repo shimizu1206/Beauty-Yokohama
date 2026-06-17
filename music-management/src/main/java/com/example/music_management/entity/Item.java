@@ -8,6 +8,5 @@ public class Item {
     private String itemName;
     private int price;
     private String features;
-    private int stock;
     private long shop_id;
 }

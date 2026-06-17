@@ -4,6 +4,7 @@ import com.example.music_management.entity.Reserve;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -20,5 +21,8 @@ public interface ReserveMapper {
 
     @Select("SELECT * FROM reserve") //
     List<Reserve> selectreserveById();
+
+    @Delete("DELETE FROM reserve WHERE reserve_id = #{reserveId}")
+    void deleteReserveById(long reserveId);//消す
 }
 

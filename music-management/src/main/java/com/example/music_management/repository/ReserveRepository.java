@@ -23,4 +23,8 @@ public class ReserveRepository {
     public List<Reserve> getReserveById() {//
         return reserveMapper.selectreserveById();
     } 
+
+     public void deleteReserve(long reserveId) {
+        reserveMapper.deleteReserveById(reserveId);
+    } 
 }
