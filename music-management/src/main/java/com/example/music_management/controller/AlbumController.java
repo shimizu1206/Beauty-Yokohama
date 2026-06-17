@@ -50,7 +50,7 @@ public class AlbumController {
      public String shops(Model model){
         List<Shop> shops = shopService.getAllShops();
         model.addAttribute("shops", shops);
-        return "shop/shop-list";
+        return "shop/shop-detail";
     }
     @GetMapping("/re")
      public String albums(Model model) { 

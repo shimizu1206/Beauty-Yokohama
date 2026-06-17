@@ -38,7 +38,8 @@
         <div class="row">
             <h3>店舗詳細</h3>
         </div>
-        <div class="card h-100 shadow-sm p-4 my-4">
+        <div class="row" th:each="shop : ${shops}">
+            <div class="card h-100 shadow-sm p-4 my-4">
             <div class="row">
                 <div class="col-12">
                     <!-- <div hidden th:text="${shop.shopId}"></div> -->
@@ -90,6 +91,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <a href="/shops">周辺店舗一覧に戻る </a>
     </div>

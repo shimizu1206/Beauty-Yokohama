@@ -9,16 +9,63 @@
       <h3>横浜周辺店舗一覧 </h3>
         <div class="row g-4">
           <div class="col-md-6 col-xl-3" th:each="shop : ${shops}">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <!-- <p class="card-text text-secondary" th:text="${shop.shopId}">駅から近い大型店舗です。</p> -->
-                <p class="card-text text-secondary" th:text="${shop.shopName}">駅から近い大型店舗です。</p>
-                <p class="card-text text-secondary" th:text="${shop.openingHours}">駅から近い大型店舗です。</p>
-                <p class="card-text text-secondary" th:text="${shop.shopAddress}">駅から近い大型店舗です。</p>
-                <p class="card-text text-secondary" th:text="${shop.priceRange}">駅から近い大型店舗です。</p>
-                <a th:href="@{/shops/{shopId}(shopId=${shop.shopId})}" class="btn btn-outline-primary w-100">詳細</a>
-              </div>
+            <div class="container">
+        <div class="row">
+            <h3>店舗詳細</h3>
+        </div>
+        <div class="card h-100 shadow-sm p-4 my-4">
+            <div class="row">
+                <div class="col-12">
+                    <!-- <div hidden th:text="${shop.shopId}"></div> -->
+                    <h4 th:text="${shop.shopName}">店舗名</h4>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-5">
+                    <img th:src="${shop.picture}" alt="店舗画像" height="300">
+                </div>
+                <div class="col-7">
+                    <div class="row">
+                        <h5>髪だけでなく、あなたの人生と心に寄り添うサロン。 安心・誠実・丁寧を大切に、未来まで続くキレイを。</h5>
+                    </div>
+
+                    <!-- テーブル -->
+                    <div class="row mt-4 me-4">
+                        <table class="table table-striped-columns">
+                            <tr>
+                                <th>店舗住所</th>
+                                <td th:text="${shop.shopAddress}">横浜市??区??町?-??-??</td>
+
+                                <th>営業時間</th>
+                                <td th:text="${shop.openingHours}">??:??~??:??</td>
+                            </tr>
+                            <tr>
+                                <th>価格帯</th>
+                                <td th:text="${shop.priceRange}">&yen;?,000~&yen;?,000</td>
+
+                                <th>スタッフ数</th>
+                                <td>17人</td>
+                            </tr>
+                            <tr>
+                                <th>クチコミ</th>
+                                <td><a th:href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}">20件</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- ボタン -->
+                    <div class="row mt-4">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a th:href="@{/shops/staffs/{shopId}(shopId=${shop.shopId})}" class="btn btn-secondary">スタイリスト一覧はこちらから</a>
+                             <a th:href="@{/shops/items/{shopId}(shopId=${shop.shopId})}" class="btn btn-secondary">商品一覧はこちらから</a>
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a th:href="@{/shops/menus/{shopId}(shopId=${shop.shopId})}" class="btn btn-secondary">メニューはこちらから</a>
+                            <a th:href="@{/shops/new/{shopId}(shopId=${shop.shopId})}" class="btn btn-danger">予約はこちらから</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
           </div>
         </div>
       </div>
