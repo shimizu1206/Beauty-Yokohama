@@ -82,4 +82,7 @@ INSERT INTO items (item_name, price, features,shop_id) VALUES
 INSERT INTO kutis (age,gender,kansou,evaluate,shop_id) VALUES
   ('19','男','良かったね',5,1);
 
+INSERT INTO users(username,password) VALUES
+  ('key','$2a$10$r/xZcCOxznCOr9IueOeoAucgnp/bafStQxi.MJImWlKsvvxvzGTe6');
+
 INSERT INTO users (username, password,user_address,user_Check) VALUES ('sample', '$2a$08$hBocxV325GV9RKzHR.lHreJr8DsMrkg6vg0kRTbNnBvUFknu670GC','横浜',true);

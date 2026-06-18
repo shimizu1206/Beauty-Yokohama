@@ -53,59 +53,11 @@ public class AlbumController {
         model.addAttribute("shops", shops);
         return "shop/shop-detail";
     }
-    @GetMapping("/re")
-     public String albums(Model model) { 
-        List<Album> albums = albumService.getAllAlbums();
-        model.addAttribute("albums", albums);
-        return "album/album-list";
-     }
-
-    
+ 
     public String postMethodName(@RequestBody String entity) {
         return entity;
     }
-    
-    /*@GetMapping("/new")//画面から入力のところ
-    public String albumForm(Model model) {//getの時はhtmlに渡すからmodelを使う？
-        AlbumForm albumForm = new AlbumForm(); //albumform型のalbumformを作成
-        model.addAttribute("albumForm", albumForm);//modelにalbumformという名前でalbumformを入れる
-        return "album/album-form";//ここのhtmlに返す
-    }
 
-    
-    @PostMapping("/new")//入力された内容を登録DBに渡す？
-    public String createAlbum(AlbumForm albumForm) {
-        albumService.createAlbum(albumForm);
-        return "redirect:/albums";
-    }*/
-
-    @GetMapping("/{shopId}")
-    public String shops(@PathVariable long shopId, Model model) {
-        Shop shop = shopService.getShopById(shopId);
-        model.addAttribute("shop", shop);
-        return "shop/shop-detail";
-    }
-
-    @PostMapping("/{albumId}/delete")
-    public String deleteAlbum(@PathVariable long albumId) {
-        albumService.deleteAlbum(albumId);
-        return "redirect:/albums";
-    }
-
-    @GetMapping("/{albumId}/edit")
-    public String editAlbum(@PathVariable long albumId, Model model) {
-        Album album = albumService.getAlbumById(albumId);
-        model.addAttribute("album", album);
-        return "album/album-edit";
-    }
-
-    @PostMapping("/{albumId}/edit")
-    public String updateAlbum(@PathVariable long albumId, Album album) {
-        albumService.updateAlbum(albumId, album);//updateAlbumに引数でもらったidとalbumを渡す。
-        return "redirect:/albums";
-    }
-
-//========================================================================================
     @GetMapping("/items/{shopId}")
     public String item(@PathVariable long shopId, Model model) {
         List<Item> item = itemService.getItemsByshopId(shopId);

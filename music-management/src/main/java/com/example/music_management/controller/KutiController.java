@@ -1,6 +1,8 @@
 package com.example.music_management.controller;
 
 import java.util.List;
+
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.music_management.entity.Kuti;
 import com.example.music_management.entity.Shop;
 import com.example.music_management.form.KutiForm;
+import com.example.music_management.securiry.CustomUserDetails;
 import com.example.music_management.service.KutiService;
 import com.example.music_management.service.ShopService;
 
@@ -41,8 +44,14 @@ public class KutiController {
     }
 
     @PostMapping("shops/Kutis/{kutiId}/delete")
-    public String deleteKuti(@PathVariable long kutiId) {
+    public String deleteKuti(@PathVariable long kutiId,@AuthenticationPrincipal CustomUserDetails userDetails) {
+        String result = "";
+        if(userDetails.getUsername() .equals("key")){
         kutiService.deleteKuti(kutiId);
-        return "redirect:/shops";
+             result = "redirect:/shops";
+        }else {
+             result = "redirect:/shops";
+        }
+        return result;
     }
-}
+    }
