@@ -10,5 +10,6 @@ public class StaffView{
     private String shopAddress;
     private String priceRange;
     private String staffCount;
+    private String kutisCount;
     private String picture;
 }

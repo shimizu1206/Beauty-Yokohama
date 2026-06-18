@@ -45,7 +45,9 @@
                             </tr>
                             <tr>
                                 <th>クチコミ</th>
-                                <td><a th:href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}">20件</a></td>
+                                <td>
+                                    <a th:text="${shop.kutisCount}" th:href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}">口コミ件数</a>
+                                </td>
                             </tr>
                         </table>
                     </div>
