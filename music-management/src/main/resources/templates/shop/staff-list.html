@@ -1,37 +1,68 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{layout :: head(アルバム一覧 )}"></head>
+<head th:replace="~{layout :: head(スタイリスト一覧)}"></head>
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>商品一覧 </h3>
-    <table>
-        <thead>
-            <tr>
-                <th>名前</th>
-                <th>性別</th>
-                <th>年齢</th>
-                <th>特徴 </th>
-                <th>経歴 </th>
-                <th>趣味 </th>
-                <th>ID </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="staff : ${staffs}">
-                <td><span th:text="${staff.staffName}">staffName</span></td>
-                <td><span th:text="${staff.gender}">gender</span></td>
-                <td><span th:text="${staff.age}">age</span>円</td>
-                <td><span th:text="${staff.specialty}">specialty</td>
-                <td><span th:text="${staff.career}">career</span></td>
-                <td><span th:text="${staff.hobby}">hobby</span></td>
-                <td><span th:text="${staff.shopId}">shopId</span></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="mt-3 mb-4 px-2">
+        <div class="container">
+            <div class="row mx-2">
+                <h3>スタイリスト一覧</h3>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-xl-3" th:each="staff : ${staffs}">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <img src="../../../../image/saikomutaro.png" alt="スタイリスト画像" height="150"
+                                        style="display: block; margin: auto;">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mx-2">
+                                    <h4 th:text="${staff.staffName}">名前</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <table class="table">
+                                        <tr>
+                                            <th>性別</th>
+                                            <td th:text="${staff.gender}">??</td>
+
+                                            <th>年齢</th>
+                                            <td th:text="${staff.age}">??</td>
+                                        </tr>
+                                        <tr>
+                                            <th>経歴</th>
+                                            <td th:text="${staff.career}">0</td>
+
+                                            <th>趣味</th>
+                                            <td th:text="${staff.hobby}">???</td>
+                                        </tr>
+                                        <tr>
+                                            <th>特徴</th>
+                                            <td th:text="${staff.specialty}">???</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row mx-2 mt-2">
+                                ひとこと
+                                <hr>
+                            </div>
+                            <div class="row mx-3">
+                                お客様に最高のひとときを提供いたします。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
-
 </html>
