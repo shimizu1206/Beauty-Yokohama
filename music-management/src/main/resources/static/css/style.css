@@ -4,4 +4,5 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: center; 
+    backdrop-filter: blur(2px);
 }
