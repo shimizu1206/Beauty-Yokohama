@@ -20,6 +20,7 @@ public class KutiService {
     kuti.setGender(kutiForm.getGender());
     kuti.setKansou(kutiForm.getKansou());
     kuti.setShopId(kutiForm.getShopId());
+    kuti.setEvaluate(kutiForm.getEvaluate());
     kutiRepository.insertKutikomi(kuti);
   }
 
