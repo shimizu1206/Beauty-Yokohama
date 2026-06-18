@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{layout :: head(アルバム一覧 )}"></head>
+<head th:replace="~{layout :: head(予約確認)}"></head>
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>予約確認 </h3>
-    <table>
-        <thead>
-            <tr>
-                <th>予約店舗名</th>
-                <th>予約者名</th>
-                <th>指名</th>
-                <th>メニュー </th>
-                <th>価格 </th>
-                <th>予約時間 </th>
-                <th>購入品 </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="reservedinfo : ${reserved}">
-                <td><span th:text="${reservedinfo.shopName}">shopName</span></td><br>
-                <td><span th:text="${reservedinfo.userName}">userName</span>様</td><br>
-                <td><span th:text="${reservedinfo.staffName}">staffName</span></td><br>
-                <td><span th:text="${reservedinfo.menu}">menu</td><br>
-                <td>
-                    <span th:if="${user.userCheck eq true and reservedinfo.item eq 'なし'}"
-                        th:text="${reservedinfo.price} * 90 / 100">price</span>
-                    <span th:if="${!(reservedinfo.item eq 'なし') and  user.userCheck eq false}"
-                        th:text="${reservedinfo.price} * 95 / 100">price</span>
-                    <span th:if="${user.userCheck eq true and !(reservedinfo.item eq 'なし')}"
-                        th:text="${reservedinfo.price} * 85 / 100">price</span>
-                    <span th:unless="${user.userCheck == true} or !${reservedinfo.item eq 'なし'}"
-                        th:text="${reservedinfo.price}">price</span>
-                    円
-                </td><br>
-                <td><span th:text="${reservedinfo.DateAndTime}">DateAndTime</span></td><br>
-                <td><span th:text="${reservedinfo.item}">item</span></td>
-                <td>
-                    <form th <form
-                        th:action="@{/shops/reserved/{reservedId}/delete(reservedId=${reservedinfo.reserveId})}"
-                        method="post">
-                        <button type="submit">予約取消</button>
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+    <div class="container mb-4">
+        <div class="row justify-content-center mt-3">
+            <h3>予約確認</h3>
+            <div class="card h-100 shadow-sm mx-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">利用者名</th>
+                            <th scope="col">予約日時</th>
+                            <th scope="col">店舗名</th>
+                            <th scope="col">メニュー名</th>
+                            <th scope="col">美容師名</th>
+                            <th scope="col">購入品</th>
+                            <th scope="col">価格</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="reservedinfo : ${reserved}">
+                            <td><span th:text="${reservedinfo.userName}">userName</span>様</td>
+                            <td><span th:text="${reservedinfo.DateAndTime}">DateAndTime</span></td>
+                            <td><span th:text="${reservedinfo.shopName}">shopName</span></td>
+                            <td><span th:text="${reservedinfo.menu}">menu</td>
+                            </td>
+                            <td><span th:text="${reservedinfo.staffName}">staffName</span></td>
+                            <td><span th:text="${reservedinfo.item}">item</span></td>
+                            <td>
+                                <span th:if="${user.userCheck eq true and reservedinfo.item eq 'なし'}"
+                                    th:text="${reservedinfo.price} * 90 / 100">price</span>
+                                <span th:if="${!(reservedinfo.item eq 'なし') and  user.userCheck eq false}"
+                                    th:text="${reservedinfo.price} * 95 / 100">price</span>
+                                <span th:if="${user.userCheck eq true and !(reservedinfo.item eq 'なし')}"
+                                    th:text="${reservedinfo.price} * 85 / 100">price</span>
+                                <span th:unless="${user.userCheck == true} or !${reservedinfo.item eq 'なし'}"
+                                    th:text="${reservedinfo.price}">price</span>
+                                円
+                            </td>
+                            <td>
+                                <form
+                                    th:action="@{/shops/reserved/{reservedId}/delete(reservedId=${reservedinfo.reserveId})}"
+                                    method="post">
+                                    <button class="btn btn-danger" type="submit">予約取消</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
 
