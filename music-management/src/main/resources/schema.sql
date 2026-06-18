@@ -58,9 +58,10 @@ CREATE TABLE users (
 );
 CREATE TABLE kutis (
    kuti_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-   age VARCHAR(255) UNIQUE NOT NULL,
+   age VARCHAR(255) NOT NULL,
    gender VARCHAR(255) ,
    kansou VARCHAR(255) ,
-   shop_id INTEGER NOT NULL
+   shop_id INTEGER NOT NULL,
+   evaluate FLOAT
 );
 

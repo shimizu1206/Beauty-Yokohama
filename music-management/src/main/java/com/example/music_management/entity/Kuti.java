@@ -9,5 +9,6 @@ public class Kuti {
    private String gender;
    private String kansou;
    private long shopId;
+   private double evaluate;
 }
 

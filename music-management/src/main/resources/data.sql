@@ -78,7 +78,7 @@ INSERT INTO items (item_name, price, features,shop_id) VALUES
   ('ワックス', 3000, '「 濡れ感のある髪に 」',4),
   ('ワックス', 3000, '「 濡れ感のある髪に 」',5);
 
-INSERT INTO kutis (age,gender,kansou,shop_id) VALUES
-  ('19','男','良かったね',1);
+INSERT INTO kutis (age,gender,kansou,evaluate,shop_id) VALUES
+  ('19','男','良かったね',5,1);
 
 INSERT INTO users (username, password,user_address,user_Check) VALUES ('sample', '$2a$08$hBocxV325GV9RKzHR.lHreJr8DsMrkg6vg0kRTbNnBvUFknu670GC','横浜',true);

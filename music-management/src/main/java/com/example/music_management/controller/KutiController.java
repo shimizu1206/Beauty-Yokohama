@@ -17,12 +17,13 @@ public class KutiController {
     private final KutiService kutiService;
     private final ShopService shopService;
 
-    public KutiController(KutiService kutiService,ShopService shopService){
+    public KutiController(KutiService kutiService, ShopService shopService) {
         this.kutiService = kutiService;
         this.shopService = shopService;
     }
+
     @GetMapping("shops/Kutis/{shopId}")
-     public String kuti(@PathVariable long shopId, Model model) {
+    public String kuti(@PathVariable long shopId, Model model) {
         List<Kuti> Kutis = kutiService.getKutisByshopId(shopId);
         Shop shop = shopService.getShopById(shopId);
         KutiForm KutiForms = new KutiForm();
@@ -36,6 +37,12 @@ public class KutiController {
     @PostMapping("shops/Kutis/{shopId}")
     public String createAlbum(@PathVariable long shopId, KutiForm kutiForm) {
         kutiService.createKutikomi(kutiForm);
-        return "redirect:/shops/Kutis/"+shopId;
+        return "redirect:/shops/Kutis/" + shopId;
+    }
+
+    @PostMapping("shops/Kutis/{kutiId}/delete")
+    public String deleteKuti(@PathVariable long kutiId) {
+        kutiService.deleteKuti(kutiId);
+        return "redirect:/shops";
     }
 }
