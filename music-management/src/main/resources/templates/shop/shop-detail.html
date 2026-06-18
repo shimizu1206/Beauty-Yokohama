@@ -49,6 +49,12 @@
                                     <a th:text="${shop.kutisCount}" th:href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}">口コミ件数</a>
                                 </td>
                             </tr>
+                            <tr>
+                                <th>評価</th>
+                                <td>
+                                    <a th:text="${shop.reviewAverage}">評価</a>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                     <!-- ボタン -->
