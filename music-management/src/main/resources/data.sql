@@ -60,7 +60,7 @@ INSERT INTO menus (menu, price, cut_time,shop_id) VALUES
   ('縮毛矯正', 16000, '2時間',3),
   ('ドレッドヘア', 50000, '2時間',3),
   ('ドレッドヘア', 40000, '2時間',3);
-  
+
 INSERT INTO items (item_name, price, features,shop_id) VALUES
   ('シャンプー', 2000, '「 髪の毛をサラサラに 」',1),
   ('シャンプー', 2000, '「 髪の毛をサラサラに 」',2),

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import com.example.music_management.form.ReserveForm;
+import com.example.music_management.form.StaffView;
 import com.example.music_management.securiry.CustomUserDetails;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,7 +49,7 @@ public class AlbumController {
 
     @GetMapping 
      public String shops(Model model){
-        List<Shop> shops = shopService.getAllShops();
+        List<StaffView> shops = shopService.getAllShops();
         model.addAttribute("shops", shops);
         return "shop/shop-detail";
     }

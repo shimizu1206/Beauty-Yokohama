@@ -5,35 +5,6 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <!-- <h3>店舗詳細 </h3>
-    <table>
-        <tr>
-            <th>店舗ID </th>
-            <td th:text="${shop.shopId}"></td>
-        </tr>
-        <tr>
-            <th>店舗名 </th>
-            <td th:text="${shop.shopName}"></td>
-        </tr>
-        <tr>
-            <th>営業時間 </th>
-            <td th:text="${shop.openingHours}"></td>
-        </tr>
-        <tr>
-            <th>店舗住所 </th>
-            <td th:text="${shop.shopAddress}"></td>
-        </tr>
-        <tr>
-            <th>価格帯 </th>
-            <td th:text="${shop.priceRange}">円</td>
-        </tr>
-    </table>
-    <a href="/shops">周辺店舗一覧に戻る </a><br>
-    <a th:href="@{/shops/items/{shopId}(shopId=${shop.shopId})}">商品一覧 </a><br>
-    <a th:href="@{/shops/staffs/{shopId}(shopId=${shop.shopId})}">美容師一覧 </a><br>
-    <a th:href="@{/shops/menus/{shopId}(shopId=${shop.shopId})}">メニュー一覧 </a><br>
-    <a th:href="@{/shops/new/{shopId}(shopId=${shop.shopId})}">美容室予約 </a><br>
-    <a th:href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}">口コミ入力 </a> -->
     <div class="container">
         <div class="row">
             <h3>店舗詳細</h3>
@@ -70,7 +41,7 @@
                                 <td th:text="${shop.priceRange}">&yen;?,000~&yen;?,000</td>
 
                                 <th>スタッフ数</th>
-                                <td>17人</td>
+                                <td th:text="${shop.staffCount}">17人</td>
                             </tr>
                             <tr>
                                 <th>クチコミ</th>

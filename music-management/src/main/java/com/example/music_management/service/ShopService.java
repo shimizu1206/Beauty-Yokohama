@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import com.example.music_management.entity.Shop;
+import com.example.music_management.form.StaffView;
 import com.example.music_management.repository.ShopRepository;
 
 @Service
@@ -13,7 +14,7 @@ public class ShopService {
     public ShopService(ShopRepository shopRepository){
         this.shopRepository = shopRepository;
     }
-        public List<Shop> getAllShops(){
+        public List<StaffView> getAllShops(){
         return shopRepository.getAllShops();
     }
     public Shop getShopById(long shopId) {
