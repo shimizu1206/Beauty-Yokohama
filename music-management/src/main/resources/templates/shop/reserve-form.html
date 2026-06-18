@@ -36,7 +36,7 @@
         
         <div>
             <label for="price">価格: </label>
-            <input type="text" id="price" name="price" th:field="*{price}">
+            <input type="text" id="price" name="price" th:field="*{price}" readonly>
         </div>
         <div>
             <label for="DateAndTime">予約時間: </label>
@@ -45,7 +45,8 @@
         <div>
             <label for="item">購入品: </label>
             <select name="item" id="item">
-                <option value="">--購入品を選択してください--</option>
+                <!--<option value="">--購入品を選択してください--</option>-->
+                <option value="なし">なし</option>
                 <option th:each="item : ${items}" th:value="${item.itemName}" th:text="${item.itemName}"></option>
             </select>
         </div>
