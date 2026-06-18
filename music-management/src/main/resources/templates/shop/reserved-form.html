@@ -25,16 +25,23 @@
                 <td><span th:text="${reservedinfo.userName}">userName</span>様</td><br>
                 <td><span th:text="${reservedinfo.staffName}">staffName</span></td><br>
                 <td><span th:text="${reservedinfo.menu}">menu</td><br>
-                <td><span th:if="${user.userCheck} and ${reservedinfo.item == false}" th:text="${reservedinfo.price} * 90 / 100">price</span>
-                    <span th:if="${reservedinfo.item} and ${user.userCheck == false}" th:text="${reservedinfo.price} * 95 / 100">price</span>
-                    <span th:if="${user.userCheck} and ${reservedinfo.item}" th:text="${reservedinfo.price} * 85 / 100">price</span>
-                    <span th:unless="${user.userCheck} and ${reservedinfo.item}" th:text="${reservedinfo.price}">price</span>
+                <td>
+                    <span th:if="${user.userCheck eq true and reservedinfo.item eq ''}"
+                        th:text="${reservedinfo.price} * 90 / 100">price</span>
+                    <span th:if="${!(reservedinfo.item eq '') and  user.userCheck eq false}"
+                        th:text="${reservedinfo.price} * 95 / 100">price</span>
+                    <span th:if="${user.userCheck eq true and !(reservedinfo.item eq '')}"
+                        th:text="${reservedinfo.price} * 85 / 100">price</span>
+                    <span th:unless="${user.userCheck == true} or !${reservedinfo.item eq ''}"
+                        th:text="${reservedinfo.price}">price</span>
                     円
                 </td><br>
                 <td><span th:text="${reservedinfo.DateAndTime}">DateAndTime</span></td><br>
                 <td><span th:text="${reservedinfo.item}">item</span></td>
                 <td>
-                    <form th <form th:action="@{/shops/reserved/{reservedId}/delete(reservedId=${reservedinfo.reserveId})}" method="post">
+                    <form th <form
+                        th:action="@{/shops/reserved/{reservedId}/delete(reservedId=${reservedinfo.reserveId})}"
+                        method="post">
                         <button type="submit">予約取消</button>
                     </form>
                 </td>
