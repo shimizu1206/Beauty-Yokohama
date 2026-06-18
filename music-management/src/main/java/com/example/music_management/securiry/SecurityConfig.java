@@ -28,7 +28,7 @@ public class SecurityConfig {
             .formLogin(login -> login
                 .loginProcessingUrl("/login")
                 .loginPage("/login")
-                .defaultSuccessUrl("/shops")
+                .defaultSuccessUrl("/shops",true)
                 .failureUrl("/login?error")
                 .permitAll()
             );

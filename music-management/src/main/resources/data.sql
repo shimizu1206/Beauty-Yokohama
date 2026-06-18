@@ -1,10 +1,11 @@
 --ここで、具体的な要素を入れていく
 INSERT INTO shops (shop_name, opening_hours, shop_address,price_range,picture) VALUES
-  ('サイコム美容室', '10:00~21:00', '〇県〇市〇町','1000~5000','\image\original.jpg'),
-  ('美容室yokohama', '9:00~22:00', '〇県〇市〇町','2000~7000','C:\\images\\shop1.jpg'),
-  ('cut横浜', '10:00~21:30', '〇県〇市〇町','3000~10000','C:\\images\\shop1.jpg'),
-  ('Haircut横浜', '10:00~22:30', '〇県〇市〇町','3000~15000','C:\\images\\shop1.jpg'),
-  ('横浜style', '8:00~21:30', '〇県〇市〇町','3000~10000','C:\\images\\shop1.jpg');
+  ('サイコム美容室', '10:00~21:00', '横浜駅東口徒歩6分','4000¥~','\image\shop1.jpg'),
+  ('美容室yokohama', '9:00~22:00', '横浜駅徒歩5分','4500¥~','\image\shop2.jpg'),
+  ('cut横浜', '10:00~21:30', '横浜駅西口徒歩2分','3800¥~','\image\shop3.jpg'),
+  ('Haircut横浜', '10:00~22:30', '横浜駅西口 徒歩3分','4300¥~','\image\shop4.jpg'),
+  ('横浜style', '8:00~21:30', '横浜駅西口5分','6000¥~','\image\shop5.jpg'),
+  ('美容室 t-ia', '8:00~21:30', ' 横浜駅西口徒歩3分','5800¥~','\image\shop6.jpg');
 
 INSERT INTO staff (staff_name, gender, age,specialty,career,hobby,shop_id) VALUES
   ('Takeru', '男性', 30,'メンズカットが得意です',5,'キャンプ',1),
