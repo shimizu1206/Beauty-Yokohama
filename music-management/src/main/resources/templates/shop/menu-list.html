@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{layout :: head(アルバム一覧 )}"></head>
+<head>
+    <div th:replace="~{layout :: head(メニュー)}"></div>
+    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
+</head>
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>メニュー一覧 </h3>
+    <!-- <h3>メニュー一覧 </h3>
     <table>
         <thead>
             <tr>
@@ -26,7 +29,79 @@
                 </td>
             </tr>
         </tbody>
+    </table> -->
+
+
+
+
+
+
+
+
+
+    <div id="wrapper">
+    <h1>~Menu~</h1>
+
+    <table id="keywords" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th><span>メニュー名</span></th>
+          <th><span>料金</span></th>
+          <th><span>内容</span></th>
+          <th><span>施術時間</span></th>
+          <th><span>横浜在住の方限定</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="menu : ${menus}">
+          <td class="lalign" th:text="${menu.menu}">カットのみ(60分)</td>
+          <td><span th:text="${menu.price}">menu price</span>円</td>
+          <td>丁寧なヒアリングで理想の髪型に！</td>
+          <td th:text="${menu.cutTime}">1時間</td>
+          <td>10%割引</td>
+        </tr>
+        <!-- <tr>
+          <td class="lalign">カット＆カラー(90分)</td>
+          <td>10,000円</td>
+          <td>どんなカラーもおまかせ！</td>
+          <td>10%割引</td>
+        </tr>
+        <tr>
+          <td class="lalign">カット＆カラー＆トリートメント(120分)</td>
+          <td>15,000円</td>
+          <td>当サロン限定の特別なトリートメント！</td>
+          <td>10%割引</td>
+        </tr> -->
+      </tbody>
     </table>
+  </div>
+
+  <script>
+    $(function () {
+      $('#keywords').tablesorter();
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div th:replace="~{layout :: footer}"></div>
 </body>
 
