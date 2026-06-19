@@ -5,7 +5,9 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>美容室予約 </h3>
+
+    <!-- ↓作ってくれたやつ -->
+    <!-- <h3>美容室予約 </h3>
     <form th:action="@{/shops/new}" th:object="${reserveForm}" method="post">
 
         <div>
@@ -36,7 +38,7 @@
         
         <div>
             <label for="price">価格: </label>
-            <input type="text" id="price" name="price" th:field="*{price}" readonly>
+            <input type="text" id="price" name="price" th:field="*{price}">
         </div>
         <div>
             <label for="DateAndTime">予約時間: </label>
@@ -45,8 +47,7 @@
         <div>
             <label for="item">購入品: </label>
             <select name="item" id="item">
-                <!--<option value="">--購入品を選択してください--</option>-->
-                <option value="なし">なし</option>
+                <option value="">--購入品を選択してください--</option>
                 <option th:each="item : ${items}" th:value="${item.itemName}" th:text="${item.itemName}"></option>
             </select>
         </div>
@@ -66,7 +67,93 @@
 
         </script>
         <button type="submit">予約する</button>
+    </form> -->
+    <!-- ↑作ってくれたやつ -->
+
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+<div class="col-lg-8">
+<div class="card shadow-sm">
+<div class="card-body p-4 p-md-5">
+
+    <h3 class="fw-bold mb-4">美容室予約 </h3>
+    <form th:action="@{/shops/new}" th:object="${reserveForm}" method="post">
+        <div class="row g-3">
+
+        <div>
+            <label for="shopName">美容室名： </label>
+            <input th:field="*{shopName}">
+            <input th:field="*{shopId}" type="hidden">
+        </div>
+
+        <div>
+            <label for="userName" class="form-label">予約者名： </label>
+            <input type="text" id="userName" name="userName" th:field="*{userName}" class="form-control">
+        </div>
+
+        <div class="col-12">
+            <label for="staffName" class="form-label">指名： </label>
+            <select name="staffName" id="staffName" class="form-select">
+                <option value="">--美容師を選択してください--</option>
+                <option th:each="staff : ${staffs}" th:value="${staff.staffName}" th:text="${staff.staffName}"></option>
+            </select>
+        </div>
+
+        <div class="col-12">
+            <label for="menu" class="form-label">メニュー: </label>
+            <select name="menu" id="menu" class="form-select">
+                <option value="">--メニューを選択してください--</option>
+                <option th:each="menu : ${menus}" th:value="${menu.menu}" th:text="${menu.menu}"></option>
+            </select>
+        </div>
+        
+        <div class="col-12">
+            <label for="price" class="form-label">価格: </label>
+            <input type="text" id="price" name="price" th:field="*{price}">
+        </div>
+
+        <div class="col-md-6">
+            <label for="DateAndTime" class="form-label">予約時間: </label>
+            <input type="datetime-local" id="DateAndTime" name="DateAndTime" th:field="*{DateAndTime}" class="form-control">
+        </div>
+
+        <div class="col-12">
+            <label for="item" class="form-label">購入品: </label>
+            <select name="item" id="item" class="form-select">
+                <option value="">--購入品を選択してください--</option>
+                <option th:each="item : ${items}" th:value="${item.itemName}" th:text="${item.itemName}"></option>
+            </select>
+        </div>
+        <script th:inline="javascript">
+            const m = document.getElementById('menu');
+            const p = document.getElementById('price');
+
+            m.addEventListener('change', function () {
+                const i = /*[[${menus}]]*/[];
+                for (const n of i) {
+                    if (this.value === n.menu) {
+                        p.value = n.price;
+                    }
+                }
+            });
+                
+
+        </script>
+
+        <div class="col-12 d-grid d-md-flex justify-content-md-end">
+        <button type="submit">予約する</button>
     </form>
+</div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</section>
+
     <div th:replace="~{layout :: footer}"></div>
 </body>
 

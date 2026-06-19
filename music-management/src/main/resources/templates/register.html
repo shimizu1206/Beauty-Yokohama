@@ -3,7 +3,8 @@
 <head th:replace="~{layout :: head(ユーザ登録)}"></head>
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>ユーザ登録</h3>
+    <!-- ↓作ってくれたやつ -->
+    <!-- <h3>ユーザ登録</h3>
     <form th:action="@{/register}" th:object="${userForm}" method="post">
         <div>
             <label for="username">ユーザ名：</label>
@@ -22,7 +23,57 @@
             <input type="checkbox" id="uesrCheck" name="userCheck" th:checked = "*{userCheck}">
         </div>
         <button type="submit">登録</button>
+    </form> -->
+    <!-- ↑作ってくれたやつ -->
+
+  <!-- <h1 class="h3 mt-2 mb-3 font-weight-normal">BeautyYokohama | ユーザー登録</h3> -->
+    <form th:action="@{/register}" th:object="${userForm}" method="post" class="w-25 mx-auto" >
+        <div>
+            <label for="username" class="sr-only">ユーザ名：</label>
+            <input type="text" id="username" name="username" th:field="*{username}" class="form-control" placeholder="ユーザー名" 
+           			required autofocus/>
+        </div>
+        <div>
+            <label for="password" class="sr-only">パスワード：</label>
+            <!-- inputタグにminlength="8" maxlength="16"を入れるとよい -->
+            <input type="password" id="password" name="password" th:field="*{password}" class="form-control" placeholder="パスワード" 
+           			required/>
+        </div>
+        <div>
+            <label for="userAddress">住所：</label>
+            <input type="text" id="userAdress" name="userAddress" th:field="*{userAddress}">
+        </div>
+        <div>
+            <label for="userCheck">横浜市民ですか？：</label>
+            <input type="checkbox" id="uesrCheck" name="userCheck" th:checked = "*{userCheck}">
+        </div>
+        <button type="submit">登録</button>
     </form>
+
+    <!-- <h1 class="h3 mt-2 mb-3 font-weight-normal">BeautyYokohama | ユーザー登録</h1>
+        
+        <form class="w-25 mx-auto" th:action="@{/register}" th:object="${userForm}" method="post" >
+            <div>
+            
+           	<label for="username" class="sr-only"></label>
+           	<input class="form-control" id="username"
+           			type="text" name="username" placeholder="ユーザID" 
+           			required autofocus/>
+           	<label for="password" class="sr-only"></label>
+           	<input class="form-control" id="password"
+           			type="password" name="password" placeholder="パスワード" 
+           			required/>
+         <div>
+            <label for="userAddress">住所：</label>
+            <input type="text" id="userAdress" name="userAddress">
+        </div>
+            <div>
+            <label for="buy">横浜市民ですか？：</label>  
+            <input type="checkbox" id="uesrCheck" name="userCheck" th:checked = "*{userCheck}"> 
+        </div>
+           	<input class="btn btn-outline-primary my-1" type="submit" value="登録"/>
+        </form> -->
+
     <div th:replace="~{layout :: footer}"></div>
 </body>
 </html>
