@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.example.music_management.entity.Kuti;
 import com.example.music_management.entity.Shop;
 import com.example.music_management.form.KutiForm;
@@ -44,13 +46,13 @@ public class KutiController {
     }
 
     @PostMapping("shops/Kutis/{kutiId}/delete")
-    public String deleteKuti(@PathVariable long kutiId,@AuthenticationPrincipal CustomUserDetails userDetails) {
+    public String deleteKuti(@PathVariable long kutiId,@AuthenticationPrincipal CustomUserDetails userDetails,@RequestParam long shopId) {
         String result = "";
         if(userDetails.getUsername() .equals("key")){
         kutiService.deleteKuti(kutiId);
-             result = "redirect:/shops";
+             result = "redirect:/shops/Kutis/" + shopId;
         }else {
-             result = "redirect:/shops";
+             result = "redirect:/shops/Kutis/" + shopId;
         }
         return result;
     }

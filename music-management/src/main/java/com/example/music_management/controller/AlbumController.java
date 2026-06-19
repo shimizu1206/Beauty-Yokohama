@@ -100,7 +100,7 @@ public class AlbumController {
     public String createReserve(ReserveForm reserveForm,@AuthenticationPrincipal CustomUserDetails userDetails) {
         reserveForm.setUserId(userDetails.getUserId());
         reserveService.createReserve(reserveForm);
-        return "redirect:/shops";
+        return "redirect:/shops/reserved";
     }
 
     @GetMapping("/reserved")

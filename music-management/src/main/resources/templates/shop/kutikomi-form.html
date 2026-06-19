@@ -60,6 +60,9 @@
                             </div>
                             <div class="col-2">
                                 <form th:action="@{/shops/Kutis/{kutiId}/delete(kutiId=${kuti.kutiId})}" method="post">
+                                    <div>
+                                        <input type="hidden" id="shopId" name="shopId" th:value="${kuti.shopId}">
+                                    </div>
                                     <button class="btn btn-danger" type="submit">削除</button>
                                 </form>
                             </div>
