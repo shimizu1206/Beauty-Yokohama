@@ -1,8 +1,8 @@
 body {
     background-image: url("../image/haikei.png");
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-position: center; 
-    backdrop-filter: blur(2px);
+    background-position: center;
+    backdrop-filter: blur(10px);
 }

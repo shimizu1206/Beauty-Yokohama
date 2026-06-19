@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
+#loader {
+  position: fixed;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .title {
   display: flex;
   overflow: hidden;
@@ -56,3 +69,7 @@
 .title span:nth-child(14) {
   transition-delay: 0.78s;
 }
+.title span:nth-child(15) {
+  transition-delay: 0.84s;
+}
+
