@@ -11,4 +11,5 @@ public class Staff {
     private int career;
     private String hobby;
     private long shopId;
+    private String picture;
 }
