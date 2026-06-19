@@ -30,7 +30,7 @@
 
     <div class="container">
         <div class="row">
-            <h3>横浜周辺店舗一覧</h3>
+            <h3 class="c-pageHeading__title thin f-title f-400 text-white">SHOPS</h3>
         </div>
         <div class="row" th:each="shop : ${shops}">
             <div class="card h-100 shadow-sm p-4 my-4">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-7">
                         <div class="row">
-                            <h5>髪だけでなく、あなたの人生と心に寄り添うサロン。 安心・誠実・丁寧を大切に、未来まで続くキレイを。</h5>
+                            <h5 th:text="${shop.message}">おいす</h5>
                         </div>
 
                         <!-- テーブル -->

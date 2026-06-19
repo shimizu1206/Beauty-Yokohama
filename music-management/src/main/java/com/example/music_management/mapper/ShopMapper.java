@@ -10,7 +10,7 @@ import com.example.music_management.form.StaffView;
     @Mapper
 public interface ShopMapper {
    @Select(""" 
-    SELECT s.shop_id, s.shop_name,s.shop_name,s.opening_hours,s.shop_address,s.price_range,s.picture,COUNT(Distinct st.staff_id) AS staff_count,COUNT(Distinct k.kuti_id) AS kutis_count,ROUND(AVG(DISTINCT k.evaluate), 1) AS review_average
+    SELECT s.shop_id, s.shop_name,s.shop_name,s.opening_hours,s.shop_address,s.price_range,s.picture,s.message,COUNT(Distinct st.staff_id) AS staff_count,COUNT(Distinct k.kuti_id) AS kutis_count,ROUND(AVG(DISTINCT k.evaluate), 1) AS review_average
     FROM shops s LEFT JOIN staff st ON s.shop_id = st.shop_id 
     LEFT JOIN kutis k ON s.shop_id = k.shop_id 
     GROUP BY s.shop_id

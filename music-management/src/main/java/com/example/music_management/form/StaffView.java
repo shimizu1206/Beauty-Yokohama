@@ -12,5 +12,6 @@ public class StaffView{
     private String staffCount;
     private String kutisCount;
     private String picture;
+    private String message;
     private double reviewAverage;
 }
