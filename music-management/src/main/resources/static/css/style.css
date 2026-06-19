@@ -8,3 +8,9 @@ body {
     backdrop-filter: blur(2px);
     font-family: 'Noto Serif JP', sans-serif;
 }
+
+/* 6/19スタイリスト一覧のテーブル修正 */
+th {
+    overflow-wrap: normal;
+    word-break: keep-all;
+}
