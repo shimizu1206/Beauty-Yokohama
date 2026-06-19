@@ -9,4 +9,5 @@ public class Item {
     private int price;
     private String features;
     private long shop_id;
+    private String picture;
 }

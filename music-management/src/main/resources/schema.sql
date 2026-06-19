@@ -46,6 +46,7 @@ CREATE TABLE items (--商品情報
     price INTEGER NOT NULL,--値段
     features VARCHAR(255),--商品説明
     shop_id INTEGER NOT NULL,
+    picture VARCHAR(255),
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
 CREATE TABLE users (
