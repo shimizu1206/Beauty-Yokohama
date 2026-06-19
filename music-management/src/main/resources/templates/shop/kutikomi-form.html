@@ -42,7 +42,7 @@
     <div class="container">
         <div class="row justify-content-center mx-2">
             <div class="col-9">
-                <h3>クチコミ</h3>
+                <h3 class="c-pageHeading__title thin f-title f-400 text-white">REVIEW</h3>
             </div>
         </div>
         <div class="row justify-content-center m-2" th:each="kuti : ${Kutis}">
@@ -75,7 +75,7 @@
                 <div class="col-lg-8">
                     <div class="card shadow-sm">
                         <div class="card-body p-4 p-md-5">
-                            <h2 class="fw-bold mb-4">クチコミを投稿</h2>
+                            <h2 class="fw-bold mb-4">レビューを投稿</h2>
                             <form th:action="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}" th:object="${KutiForms}"
                                 method="post">
                                 <div class="row g-3">
@@ -110,7 +110,7 @@
 
                                     <div class="col-12">
                                         <label for="kansou" class="form-label">内容</label>
-                                        <textarea id="kansou" class="form-control" rows="5" placeholder="クチコミを入力してください"
+                                        <textarea id="kansou" class="form-control" rows="5" placeholder="レビューを入力してください"
                                             required th:field="*{kansou}"></textarea>
                                     </div>
 
