@@ -36,7 +36,7 @@
         <div>
             <label for="password" class="sr-only">パスワード：</label>
             <!-- inputタグにminlength="8" maxlength="16"を入れるとよい -->
-            <input type="password" id="password" name="password" th:field="*{password}" class="form-control" placeholder="パスワード" 
+            <input type="password" id="password" name="password" th:field="*{password}" class="form-control" minlength="8" maxlength="16" placeholder="パスワード" 
            			required/>
         </div>
         <div>
