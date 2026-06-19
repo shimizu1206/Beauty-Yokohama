@@ -1,7 +1,7 @@
 /*menu-list*/
 @import url('https://fonts.googleapis.com/css?family=Amarante');
 
-html,
+/* html,
 body,
 div,
 span,
@@ -95,33 +95,35 @@ video {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
+} */
 
-html {
+/* html {
   overflow-y: scroll;
-}
+} */
 
 body {
-  background: #eee url('https://i.imgur.com/eeQeRmk.png');
-  /* https://subtlepatterns.com/weave/ */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* background: #eee url('https://i.imgur.com/eeQeRmk.png'); */
+  /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 62.5%;
   line-height: 1;
   color: #585858;
   padding: 22px 10px;
-  padding-bottom: 55px;
+  padding-bottom: 55px; */
 }
 
+/* 選択した部分のスタイルを変更 */
 ::selection {
   background: #5f74a0;
   color: #fff;
 }
 
+/* Firefox 対応 */
 ::-moz-selection {
   background: #5f74a0;
   color: #fff;
 }
 
+/* 古いブラウザ対応？ */
 ::-webkit-selection {
   background: #5f74a0;
   color: #fff;
@@ -131,7 +133,7 @@ br {
   display: block;
   line-height: 1.6em;
 }
-
+/* 
 article,
 aside,
 details,
@@ -144,7 +146,7 @@ menu,
 nav,
 section {
   display: block;
-}
+} */
 
 ol,
 ul {
@@ -180,10 +182,10 @@ b {
   font-weight: bold;
 }
 
-table {
+/* table {
   border-collapse: collapse;
   border-spacing: 0;
-}
+} */
 
 img {
   border: 0;
@@ -202,12 +204,16 @@ h1 {
 
 
 #wrapper {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  line-height: 1;
+  color: #585858;
   display: block;
   width: 850px;
   background: #fff;
   margin: 0 auto;
   padding: 10px 17px;
-  -webkit-box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.35);
+  /* -webkit-box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.35); */
 }
 
 #keywords {
@@ -239,13 +245,13 @@ h1 {
   background: #acc8dd;
 }
 
-#keywords thead tr th.headerSortUp span {
+/* #keywords thead tr th.headerSortUp span {
   background-image: url('https://i.imgur.com/SP99ZPJ.png');
 }
 
 #keywords thead tr th.headerSortDown span {
   background-image: url('https://i.imgur.com/RkA9MBo.png');
-}
+} */
 
 
 #keywords tbody tr {
