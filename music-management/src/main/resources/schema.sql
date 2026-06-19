@@ -17,6 +17,7 @@ CREATE TABLE staff (--美容師情報
     hobby VARCHAR(255),--趣味
     shop_id INTEGER NOT NULL,
     picture VARCHAR(255),
+    comment VARCHAR(255),
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
 CREATE TABLE menus (--メニュー情報

@@ -12,4 +12,5 @@ public class Staff {
     private String hobby;
     private long shopId;
     private String picture;
+    private String comment;
 }

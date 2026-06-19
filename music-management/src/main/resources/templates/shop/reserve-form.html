@@ -83,7 +83,7 @@
 
         <div>
             <label for="shopName">美容室名： </label>
-            <input th:field="*{shopName}">
+            <input th:field="*{shopName}" readonly>
             <input th:field="*{shopId}" type="hidden">
         </div>
 
@@ -110,7 +110,7 @@
         
         <div class="col-12">
             <label for="price" class="form-label">価格: </label>
-            <input type="text" id="price" name="price" th:field="*{price}">
+            <input type="text" id="price" name="price" th:field="*{price}" readonly>
         </div>
 
         <div class="col-md-6">
