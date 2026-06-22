@@ -63,7 +63,7 @@
                                     <td th:text="${shop.priceRange}">&yen;?,000~&yen;?,000</td>
 
                                     <th>スタッフ数</th>
-                                    <td th:text="${shop.staffCount}">17人</td>
+                                    <td><span th:text="${shop.staffCount}">17</span>人</td>
                                 </tr>
                                 <tr>
                                     <th>評価</th>
@@ -73,8 +73,7 @@
 
                                     <th>クチコミ</th>
                                     <td>
-                                        <a th:text="${shop.kutisCount}"
-                                            th:href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}">口コミ件数</a>
+                                        <a th:href="@{/shops/Kutis/{shopId}(shopId=${shop.shopId})}"><span th:text="${shop.kutisCount}">0</span>件</a>
                                     </td>
                                 </tr>
                             </table>
