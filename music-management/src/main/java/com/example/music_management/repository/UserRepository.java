@@ -1,7 +1,8 @@
 package com.example.music_management.repository;
 
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
+import org.springframework.stereotype.Repository;
 import com.example.music_management.entity.User;
 import com.example.music_management.mapper.UserMapper;
 
@@ -16,5 +17,8 @@ public class UserRepository {
     }
     public void insertUser(User user) {
         userMapper.insertUser(user);
+    }
+    public List<User> getAllUsers() {
+        return userMapper.selectAllUsers();
     }
 }

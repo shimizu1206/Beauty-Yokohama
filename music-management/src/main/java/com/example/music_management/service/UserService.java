@@ -1,8 +1,11 @@
 package com.example.music_management.service;
 
+import java.util.List;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.music_management.entity.Item;
 import com.example.music_management.entity.User;
 import com.example.music_management.form.UserForm;
 import com.example.music_management.repository.UserRepository;
@@ -23,6 +26,9 @@ public class UserService {
         user.setUserAddress(userForm.getUserAddress());
         user.setUserCheck(userForm.isUserCheck());
         userRepository.insertUser(user);
+    }
+    public User selectUserByUsername(String username){//htmlに届ける
+        return userRepository.selectUserByUsername(username);
     }
 }
 

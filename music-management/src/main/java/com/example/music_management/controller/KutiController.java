@@ -45,9 +45,15 @@ public class KutiController {
     }
 
     @PostMapping("shops/Kutis/{shopId}")
-    public String createAlbum(@PathVariable long shopId, KutiForm kutiForm) {
+    public String createAlbum(@PathVariable long shopId,@AuthenticationPrincipal CustomUserDetails userDetails, KutiForm kutiForm) {
+        String result = "";
+        if(userDetails != null){
         kutiService.createKutikomi(kutiForm);
-        return "redirect:/shops/Kutis/" + shopId;
+        result = "redirect:/shops/Kutis/" + shopId;
+         }else {
+        result = "redirect:/shops/Kutis/" + shopId;
+         }
+         return result;
     }
 
     @PostMapping("shops/Kutis/{kutiId}/delete")

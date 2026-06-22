@@ -21,7 +21,10 @@ public class RegistrationController {
     }
     @PostMapping("/register")
     public String registerUser(UserForm userForm) {
+        if(userService.selectUserByUsername(userForm.getUsername()) != null){
+        return "shop/register-Error";
+        };
         userService.createUser(userForm);
         return "redirect:/login?register";
     }
-}
+  }

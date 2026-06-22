@@ -1,5 +1,7 @@
 package com.example.music_management.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -11,6 +13,8 @@ import com.example.music_management.entity.User;
 public interface UserMapper {
     @Select("SELECT user_id, username, password, user_address, user_check ,created_at FROM users WHERE username = #{username}")
     User selectUserByUsername(String username);
+    @Select("SELECT * FROM users")
+    List<User> selectAllUsers();
 
     @Insert("INSERT INTO users (username, password,user_address,user_check) VALUES (#{username}, #{password},#{userAddress},#{userCheck})")
     @Options(useGeneratedKeys = true, keyProperty = "userId")
