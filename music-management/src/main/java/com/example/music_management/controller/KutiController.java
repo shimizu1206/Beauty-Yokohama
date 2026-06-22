@@ -28,11 +28,16 @@ public class KutiController {
     }
 
     @GetMapping("shops/Kutis/{shopId}")
-    public String kuti(@PathVariable long shopId, Model model) {
+    public String kuti(@PathVariable long shopId, Model model,@AuthenticationPrincipal CustomUserDetails userDetails) {
         List<Kuti> Kutis = kutiService.getKutisByshopId(shopId);
         Shop shop = shopService.getShopById(shopId);
         KutiForm KutiForms = new KutiForm();
         KutiForms.setShopId(shopId);
+        if(userDetails == null){
+            model.addAttribute("user","");
+        }else {
+            model.addAttribute("user", userDetails.getUsername());
+        }
         model.addAttribute("shop", shop);
         model.addAttribute("Kutis", Kutis);
         model.addAttribute("KutiForms", KutiForms);

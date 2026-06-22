@@ -54,7 +54,7 @@ CREATE TABLE items (--商品情報
 );
 CREATE TABLE users (
     user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) UNIQUE NOT NULL,
+    username VARCHAR(255),
     password VARCHAR(60) NOT NULL,
     user_address VARCHAR(255),
     user_check BOOLEAN,
