@@ -151,7 +151,7 @@
                                     </script>
 
                                     <div class="col-12 d-grid d-md-flex justify-content-md-end">
-                                        <button class="btn btn-danger" type="submit">予約する</button>
+                                        <button class="btn btn-danger" type="submit" onclick="confirmFunction()">予約する</button>
                             </form>
                         </div>
 
@@ -160,7 +160,11 @@
             </div>
         </div>
     </section>
-
+<script>
+  function confirmFunction() {
+      alert("予約しました。");
+  }
+</script>
     <div th:replace="~{layout :: footer}"></div>
 </body>
 
