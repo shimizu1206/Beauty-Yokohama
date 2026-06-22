@@ -88,6 +88,11 @@ public class AlbumController {
         Shop shop = shopService.getShopById(shopId);
         reserveForm.setShopName(shop.getShopName());
         reserveForm.setShopId(shop.getShopId());
+        String[] times = shop.getOpeningHours().split("~");
+        String[] openHours = times[0].split(":");
+        String[] closeHours = times[1].split(":");
+        model.addAttribute("time1", openHours[0]);
+        model.addAttribute("time2", closeHours[0]);
         model.addAttribute("reserveForm", reserveForm);
         model.addAttribute("menus", menu);
         model.addAttribute("staffs", staff);

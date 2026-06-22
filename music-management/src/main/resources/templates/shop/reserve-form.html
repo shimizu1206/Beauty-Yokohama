@@ -120,7 +120,7 @@
                                     <div class="col-md-6">
                                         <label for="DateAndTime" class="form-label">予約時間: </label>
                                         <input type="datetime-local" id="DateAndTime" name="DateAndTime"
-                                            th:field="*{DateAndTime}" class="form-control" required>
+                                            th:field="*{DateAndTime}" onchange="restrictTime(this)" class="form-control" required>
                                     </div>
 
                                     <div class="col-12">
@@ -160,11 +160,27 @@
             </div>
         </div>
     </section>
-<script>
-  function confirmFunction() {
+<script th:inline="javascript">
+function confirmFunction() {
       alert("予約しました。");
   }
+function restrictTime(input) {
+ // 選択された日時をDate オブジェクトに変換
+ const selectedTime = new Date(input.value);
+
+ // 選択された時間の「時」の部分を取得
+ const hour = selectedTime.getHours();
+const openHours = /*[[${time1}]]*/0;
+const closeHours = /*[[${time2}]]*/0;
+ // 選択された時間が9時より前、または17時以降の場合
+ if (hour < openHours || hour >= closeHours) {
+   alert("営業時間外です。"+openHours+"から"+closeHours+"の間で選択してください。");
+   
+   input.value = "";
+ }
+}
 </script>
+
     <div th:replace="~{layout :: footer}"></div>
 </body>
 
