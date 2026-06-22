@@ -15,6 +15,9 @@ public interface ReserveMapper {
     @Options(useGeneratedKeys = true, keyProperty = "reserveId")
     void insertReserve(Reserve reserve); // 新規作成
 
+    @Select("SELECT * FROM reserve")
+    List<Reserve> getAllreserves();
+
     @Select("SELECT * FROM reserve WHERE user_id = #{userId}") //
     List<Reserve> selectreserveById(long userId);
     

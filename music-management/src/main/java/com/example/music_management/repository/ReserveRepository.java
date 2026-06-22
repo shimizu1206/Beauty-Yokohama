@@ -1,7 +1,7 @@
 package com.example.music_management.repository;
 
 import com.example.music_management.mapper.ReserveMapper;
-
+import com.example.music_management.entity.Item;
 import com.example.music_management.entity.Reserve;
 
 import java.util.List;
@@ -27,4 +27,7 @@ public class ReserveRepository {
      public void deleteReserve(long reserveId) {
         reserveMapper.deleteReserveById(reserveId);
     } 
+     public List<Reserve> getAllreserves() {
+        return reserveMapper.getAllreserves();
+    }
 }

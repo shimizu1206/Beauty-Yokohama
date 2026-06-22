@@ -110,10 +110,17 @@ public class AlbumController {
 
     @GetMapping("/reserved")
     public String Reaserved(Model model ,@AuthenticationPrincipal CustomUserDetails userDetails){
+        if(userDetails.getUsername() .equals("key")){
+            List<Reserve> reserved = reserveService.getAllreserves();
+            model.addAttribute("user",userDetails);
+            model.addAttribute("reserved",reserved);
+            return "shop/reserved-form";
+        }else{
         List<Reserve> reserved = reserveService.getReserveById(userDetails.getUserId());
         model.addAttribute("user",userDetails);
         model.addAttribute("reserved",reserved);
         return "shop/reserved-form";
+        }
     }
 
     @PostMapping("/reserved/{reservedId}/delete")

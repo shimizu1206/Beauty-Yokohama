@@ -36,4 +36,7 @@ public class ReserveService {
     public void deleteReserve(long reserveId) {
         reserveRepository.deleteReserve(reserveId);
     }
+    public List<Reserve> getAllreserves() {
+        return reserveRepository.getAllreserves();
+    } 
 }
