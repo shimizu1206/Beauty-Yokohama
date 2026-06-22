@@ -1,58 +1,39 @@
 <!doctype html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
-  <head th:replace="~{layout :: head(ログイン)}"></head>
-  <body>
-    <div th:replace="~{layout :: header}"></div>
-          <div class="min-vh-100 d-flex justify-content-center align-items-center">
+
+<head th:replace="~{layout :: head(ログイン)}"></head>
+
+<body>
+  <div th:replace="~{layout :: header}"></div>
+  <div class="min-vh-100 d-flex justify-content-center align-items-center">
     <form th:action="@{/login}" method="post" class="w-25 mx-auto">
       <div>
 
 
-    <div th:if="${param.error}" style="color: red">
-      ユーザ名、またはパスワードが違います
-    </div>
-    <div th:if="${param.register}" style="color: blue">登録に成功しました</div>
-        <h4 class="text-white  text-align: center">ログイン</h4>
-        <label for="username" class="sr-only"><font color="white">ユーザ名：※IDがないとご予約ができません</font></label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          class="form-control"
-          placeholder="ユーザID"
-          required
-          autofocus
-        />
-      
+        <div th:if="${param.error}" style="color: red">
+          ユーザ名、またはパスワードが違います
+        </div>
+        <div th:if="${param.register}" style="color: blue">登録に成功しました</div>
+        <center><h4 class="text-white text-align: center mb-3">ログイン</h4></center>
 
-      
-        <label for="password" class="sr-only"><font color="white">パスワード: 8桁以上入力必須</font></label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          class="form-control"
-          placeholder="パスワード"
-          required
-        />
-      
+        <label for="username" class="sr-only text-white">ユーザ名：※IDがないとご予約ができません</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="ユーザID" required autofocus />
 
-      <button
-        type="submit"
-        class="btn btn-outline-light my-1"
-        value="ログイン"
-      >
-        <font color="white">ログイン</font>
-      </button>
+        <label for="password" class="sr-only text-white">パスワード: 8桁以上入力必須</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="パスワード" required />
+
+
+        <button type="submit" class="btn btn-outline-light my-1" value="ログイン">ログイン</button>
     </form>
 
 
 
-    <center><a th:href="@{/register}" class="nav-link text-white">新規登録はこちらから</font></a></center>
+    <center><a th:href="@{/register}" class="nav-link text-white">新規登録はこちらから</a></center>
 
-    </div>
-    </div>
+  </div>
+  </div>
 
-    <div th:replace="~{layout :: footer}"></div>
-  </body>
+  <div th:replace="~{layout :: footer}"></div>
+</body>
+
 </html>

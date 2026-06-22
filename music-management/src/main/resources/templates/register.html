@@ -35,6 +35,7 @@
       method="post"
       class="w-25 mx-auto"
     >
+    <center><h4 class="text-white text-align: center mb-3">新規登録</h4></center>
       <div>
         <label for="username" class="sr-only"><font color="white">ユーザ名：</font></label>
         <input
@@ -81,14 +82,14 @@
           id="uesrCheck"
           name="userCheck"
           th:checked="*{userCheck}"
+          class="form-check-input"
         />
       </div>
-      <button type="submit" class="btn btn-outline-light my-1" value="登録">
-        <font color="white">登録</font>
-      </button>
+      <button type="submit" class="btn btn-outline-light my-1" value="登録">登録</button>
+
+      <center><a th:href="@{/login}" class="nav-link text-white">ログインはこちらから</a></center>
     </form>
     </div>
-
     <!-- <h1 class="h3 mt-2 mb-3 font-weight-normal">BeautyYokohama | ユーザー登録</h1>
         
         <form class="w-25 mx-auto" th:action="@{/register}" th:object="${userForm}" method="post" >
