@@ -26,6 +26,7 @@ CREATE TABLE menus (--メニュー情報
     price INTEGER NOT NULL,--値段
     cut_time VARCHAR,--施術時間
     shop_id INTEGER NOT NULL,
+    menu_message VARCHAR(255),
     FOREIGN KEY (shop_id) REFERENCES shops(shop_id)ON DELETE CASCADE --参照
 );
 

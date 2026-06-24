@@ -8,4 +8,5 @@ public class Menu {
     private String menu;
     private int price;
     private String cutTime;
+    private String menuMessage;
 }
